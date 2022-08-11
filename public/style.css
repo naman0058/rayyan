@@ -308,9 +308,19 @@ color: #5047e5;
     box-shadow: 7px 4px 32px #cba6f0cf;
     padding:30px;
 }
-.for1{
-    padding:30px;
+
+
+.exampleFormControlTextarea1{
+    padding:50px;
     box-shadow: 7px 4px 32px #cba6f0cf;
+    background-color:#EAE1FB ;
+    border-radius: 5px;
+}
+
+.for1{
+    padding:20px;
+    box-shadow: 7px 4px 32px #cba6f0cf;
+    background-color:#EAE1FB ;
     border-radius: 5px;
 }
 

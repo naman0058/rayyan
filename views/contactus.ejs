@@ -1,0 +1,107 @@
+<%- include ('./header.ejs') %>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+    label{
+        color: black;
+        margin-top: 20px;
+    }
+</style>
+
+
+<style>
+
+
+  /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.evaluation {display: none;}
+#calculation {display: none;}
+.main-nav {display: none;}
+#footer{display:none;}
+.question{  height: 200%;
+background: white;}
+.answer{display: inline-block;}
+.mobile-nav-toggle {display: none;}
+
+/* .question{display: none;} */
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 300px) {
+  #service {margin-top: 12%;}
+
+}
+
+
+@media only screen and (min-width: 600px) {
+  #service {margin-top: 12%;}
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #service {margin-top: 10%;}
+
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #service {margin-top: 5%;}
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+#service {margin-top: 5%;}
+}
+</style>
+
+ <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section style="padding-top: 10rem;">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                      <img src="/public/images/visa-image/images/contact us/Group_1000003630-removebg-preview.png" alt="register" width="100%">
+                    </div>
+                    <div class="col-lg-6 for fo ">
+                      <p><span style="font-size:25px;color: black;"><b>Send us a message</b> </span></p>
+                       <p>Just drop a message .We will contact you</p>
+                      <p> </p>
+                        <form action="/action_page.php">
+                            <div class="form-group" style="margin-top:40px">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control box for1" id="name" placeholder="Enter name" name="name">
+                              </div> <div class="form-group">
+            
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control  box for1" id="email" placeholder="Enter email" name="email">
+                              </div>
+                          <div class="form-group">
+                            <label for="email">Phone number</label>
+                            <input type="number" class="form-control box for1" id="phone no" placeholder="Enter phone number" name="phone no">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">your Message</label>
+                            <textarea class="form-control exampleFormControlTextarea1" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                    <!-- Submit button -->
+                    <a  class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow" style="border-radius: 50px;margin-top: 20px;" href="#!" role="button">Continue</a>
+
+                        </form>
+                    </div>
+            
+            
+                </div>
+            </div>
+    
+          </section>
+          <!-- <section> close ============================-->
+          <!-- ============================================-->
+
+
+
+<%- include ('./footer.ejs') %>
