@@ -12,7 +12,7 @@
             <div class="card-header bg-default border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0" style="color:white">Migration Enquiry
+                    <h3 class="mb-0" style="color:white">All Enquiry
                       <button type="button" class="btn btn-primary float-right" id="exportBtn1" style="float: right;">Export Data</button>
                     
                     </h3>
@@ -34,6 +34,7 @@
 
 
                         <th scope="col">Email</th>
+                        <th scope="col">Message</th>
 
                       
                         <th scope="col"> Date</th>
@@ -83,6 +84,16 @@
                             <div class="media align-items-center">
                               <div class="media-body">
                                 <span class="mb-0 text-sm"><%=result[i].email%> </span>
+                              </div>
+                            </div>
+                          </th>
+
+
+                          
+                          <th scope="row">
+                            <div class="media align-items-center">
+                              <div class="media-body">
+                                <span class="mb-0 text-sm"><%=result[i].message%> </span>
                               </div>
                             </div>
                           </th>

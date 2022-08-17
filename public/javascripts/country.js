@@ -73,7 +73,8 @@ function makeTable(board){
           <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Name</th>
+              <th scope="col">Name</th>
+             
                 <th scope="col">Image</th>
                 <th scope="col"></th>
               </tr>
@@ -81,16 +82,20 @@ function makeTable(board){
             <tbody>
                   <tr>`
                   $.each(board, function(i, item) {
-                    table += `<th scope="row">
+                    table += `
+
+
+                    <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
                           <span class="mb-0 text-sm">${item.name}</span>
                         </div>
                       </div>
                     </th>
-                   
-                   
 
+
+
+                    
 
 
    <th scope="row">
@@ -147,6 +152,24 @@ $('#result').on('click', '.edit', function() {
     $('#result').hide()
     $('#pid').val(result.id)
     $('#pname').val(result.name)
+    $('#pdescription1').val(result.description1)
+    $('#pdescription2').val(result.description2)
+    $('#pservice').val(result.service)
+    $('#pservice_charge').val(result.service_charge)
+    $('#ptype').val(result.type)
+
+ 
+
+    let table = `<p>${result.price_include}</p>
+    `
+    $('.peditor').html(table)
+
+
+    let table1 = `<p>${result.apply_thing}</p>
+    `
+    $('.peditor1').html(table1)
+
+
     
 
  })
@@ -154,9 +177,18 @@ $('#result').on('click', '.edit', function() {
 
  
 $('#update').click(function(){  //data insert in database
+
+
+
+
     let updateobj = {
         id: $('#pid').val(),
         name: $('#pname').val(),
+    description1: $('#pdescription1').val(),
+        description2: $('#pdescription2').val(),
+     
+
+
         
       
     }

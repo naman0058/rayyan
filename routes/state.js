@@ -4,7 +4,7 @@ var upload = require('./multer');
 var pool = require('./pool')
 
 
-var table = 'state';
+var table = 'instructor';
 
 
 router.get('/',(req,res)=>{
@@ -27,7 +27,7 @@ router.post('/insert',upload.single('logo'),(req,res)=>{
 
 
 router.get('/show',(req,res)=>{
-	pool.query(`select t.* , (select c.name from country c where c.id = t.countryid) as countryname from ${table} t`,(err,result)=>{
+	pool.query(`select t.* , (select c.name from coaching c where c.id = t.coachingid) as coachingname from ${table} t`,(err,result)=>{
 		err ? console.log(err) : res.json(result)
 	})
 })
@@ -60,7 +60,7 @@ router.post('/update_image',upload.single('logo'), (req, res) => {
 
     pool.query(`update ${table} set ? where id = ?`, [req.body, req.body.id], (err, result) => {
         if(err) throw err;
-       else  res.redirect('/state')
+       else  res.redirect('/instructors');
     })
 })
 

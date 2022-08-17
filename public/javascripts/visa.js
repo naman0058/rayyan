@@ -73,11 +73,8 @@ function makeTable(board){
           <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
               <tr>
-              <th scope="col">Type</th>
               <th scope="col">Name</th>
-              <th scope="col">Service</th>
-              <th scope="col">Service Charge</th>
-
+             
                 <th scope="col">Image</th>
                 <th scope="col"></th>
               </tr>
@@ -85,13 +82,7 @@ function makeTable(board){
             <tbody>
                   <tr>`
                   $.each(board, function(i, item) {
-                    table += `<th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.type}</span>
-                        </div>
-                      </div>
-                    </th>
+                    table += `
 
 
                     <th scope="row">
@@ -104,26 +95,7 @@ function makeTable(board){
 
 
 
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.service}</span>
-                        </div>
-                      </div>
-                    </th>
-
-
-
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.service_charge}</span>
-                        </div>
-                      </div>
-                    </th>
-                   
-                   
-
+                    
 
 
    <th scope="row">
@@ -207,20 +179,14 @@ $('#result').on('click', '.edit', function() {
 $('#update').click(function(){  //data insert in database
 
 
-    let content = $(".peditor").html().trim();
 
-    let content1 = $(".peditor1").html().trim();
 
     let updateobj = {
         id: $('#pid').val(),
         name: $('#pname').val(),
     description1: $('#pdescription1').val(),
         description2: $('#pdescription2').val(),
-        service: $('#pservice').val(),
-        service_charge: $('#pservice_charge').val(),
-        price_include:content,
-        apply_thing:content1,
-        type:$('#ptype').val()
+     
 
 
         
