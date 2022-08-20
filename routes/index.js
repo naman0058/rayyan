@@ -5,49 +5,130 @@ var pool = require('./pool')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('index',{result})
+  })
 
+});  
+
+// 1 image in icons and some icons are missing
 
 router.get('/contact-us', function(req, res, next) {
-  res.render('contactus', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('contactus',{result})
+  })
+
 });
+
+// Done Icons missing in image
 
 router.get('/blogs', function(req, res, next) {
-  res.render('jobs', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('jobs',{result})
+  })
+
 });
 
+
+// 1 image remaining which is not provide.
+
+
 router.get('/countries', function(req, res, next) {
-  res.render('countries', { title: 'Express' });
-});
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('countries',{result})
+  })
+
+}); 
+
+// Text Remove in icons
 
 
 router.get('/visa', function(req, res, next) {
-  res.render('visa', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('visa',{result})
+  })
+
 });
 
+// Done
 
 router.get('/courses', function(req, res, next) {
-  res.render('courses', { title: 'Express' });
-});
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('courses',{result})
+  })
 
+});
+// Image Done but opacity issue
 
 router.get('/coaching', function(req, res, next) {
-  res.render('coaching', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('coaching',{result})
+  })
+
 });
 
+
+// Icons remainng which are not provided
+
 router.get('/visa_details', function(req, res, next) {
-  res.render('visa_details', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('visa_details',{result})
+  })
+
 });
+
+// Icons remainng which are not provided
 
 
 router.get('/country_details', function(req, res, next) {
-  res.render('country_details', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('country_details',{result})
+  })
+
 });
 
+// one hero image
+
+
 router.get('/about-us', function(req, res, next) {
-  res.render('aboutus', { title: 'Express' });
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  pool.query(query+query1,(err,result)=>{
+    if(err) throw err;
+    else res.render('about-us',{result})
+  })
+
 });
+
+// not editable
+
 
 
 router.get('/admin/login',(req,res)=>{
