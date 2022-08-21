@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 });  
 
-// 1 image in icons and some icons are missing
+// Done
 
 router.get('/contact-us', function(req, res, next) {
   var query = `select id , name , logo from visa;`
@@ -26,7 +26,7 @@ router.get('/contact-us', function(req, res, next) {
 
 });
 
-// Done Icons missing in image
+// Done
 
 router.get('/blogs', function(req, res, next) {
   var query = `select id , name , logo from visa;`
@@ -39,7 +39,7 @@ router.get('/blogs', function(req, res, next) {
 });
 
 
-// 1 image remaining which is not provide.
+// Done
 
 
 router.get('/countries', function(req, res, next) {
@@ -52,7 +52,7 @@ router.get('/countries', function(req, res, next) {
 
 }); 
 
-// Text Remove in icons
+// Done
 
 
 router.get('/visa', function(req, res, next) {
@@ -76,7 +76,7 @@ router.get('/courses', function(req, res, next) {
   })
 
 });
-// Image Done but opacity issue
+// Done 
 
 router.get('/coaching', function(req, res, next) {
   var query = `select id , name , logo from visa;`
@@ -89,7 +89,7 @@ router.get('/coaching', function(req, res, next) {
 });
 
 
-// Icons remainng which are not provided
+// Done
 
 router.get('/visa_details', function(req, res, next) {
   var query = `select id , name , logo from visa;`
@@ -101,7 +101,7 @@ router.get('/visa_details', function(req, res, next) {
 
 });
 
-// Icons remainng which are not provided
+// Done
 
 
 router.get('/country_details', function(req, res, next) {
@@ -114,7 +114,7 @@ router.get('/country_details', function(req, res, next) {
 
 });
 
-// one hero image
+// Done
 
 
 router.get('/about-us', function(req, res, next) {
@@ -122,7 +122,7 @@ router.get('/about-us', function(req, res, next) {
   var query1 = `select id , name , logo from country;`
   pool.query(query+query1,(err,result)=>{
     if(err) throw err;
-    else res.render('about-us',{result})
+    else res.render('aboutus',{result})
   })
 
 });

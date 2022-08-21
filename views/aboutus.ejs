@@ -1,6 +1,134 @@
 <%- include ('./header.ejs') %>
 
+<style>
 
+
+.accordion-button:not(.collapsed)::after{
+  background-image : url('/img/Visa/Visa/About Page/Minus Icon.png')
+}
+
+
+
+.accordion-button::after {
+  /* background-color: #4F46E5; */
+  background-image : url('/img/Visa/Visa/About Page/plus.png');
+
+}
+  
+.faq-section {
+    background: #F2EEFF;
+   
+}
+.faq-title h2 {
+  position: relative;
+  margin-bottom: 45px;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+}
+.faq-title h2::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 60px;
+    height: 2px;
+    background: #4F46E5;
+    bottom: -25px;
+    margin-left: -30px;
+}
+.faq-title p {
+  padding: 0 190px;
+  margin-bottom: 10px;
+}
+
+.faq {
+  background: #FFFFFF;
+  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+}
+
+.faq .card {
+  border: none;
+  background: none;
+  border-bottom: 1px dashed #CEE1F8;
+}
+
+.faq .card .card-header {
+  padding: 0px;
+  border: none;
+  background: none;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.faq .card .card-header:hover {
+    background: rgba(233, 30, 99, 0.1);
+    padding-left: 10px;
+}
+.faq .card .card-header .faq-title {
+  width: 100%;
+  text-align: left;
+  padding: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #3B566E;
+  text-decoration: none !important;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.faq .card .card-header .faq-title .badge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 14px;
+  float: left;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  text-align: center;
+  background: #4F46E5;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 20px;
+}
+
+.faq .card .card-body {
+  padding: 30px;
+  padding-left: 35px;
+  padding-bottom: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #6F8BA4;
+  line-height: 28px;
+  letter-spacing: 1px;
+  border-top: 1px solid #F3F8FF;
+}
+
+.faq .card .card-body p {
+  margin-bottom: 14px;
+}
+
+@media (max-width: 991px) {
+  .faq {
+    margin-bottom: 30px;
+  }
+  .faq .card .card-header .faq-title {
+    line-height: 26px;
+    margin-top: 10px;
+  }
+}
+</style>
 
 
  <!-- ============================================-->
@@ -8,47 +136,269 @@
         <section style="padding-top: 10rem;">
 
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-md-center">
                     <div class="col-lg-12">
-                        <h1 class="ab mt-5 pt-5 text-center">About Us</h1>
-                        <p style="text-align: center;font-size: 50px;"><b>We love to make great</b></p>
-                        <p style="text-align: center;font-size: 50px;margin-top: -2%;"><b>things,things that matter.</b></p>
-                        <p style="color: rgb(108 108 108); text-align:center;">We're impartial and independent, and every day we create
+          <div class=" translate-middle-x d-none d-xl-block ms-xl-n4 text-center" style="position: absolute;left:18%;top:2%"><img src="/img/Visa/Visa/About Page/Shape-1.png" alt="destination" style="height: 150px;" /></div>
+          <div class=" translate-middle-x d-none d-xl-block ms-xl-n4 text-center" style="position: absolute;top:8%;right: 0px;"><img src="/img/Visa/Visa/About Page/Shape 2.png" alt="destination" style="height: 250px;" /></div>
+          <div class=" translate-middle-x d-none d-xl-block ms-xl-n4 text-center" style="position: absolute;top:15%;right: 8%;"><img src="/img/Visa/Visa/About Page/Shape.png" alt="destination" style="height: 120px;" /></div>
+                      
+                        <h1 class="ab mt-5 pt-5 text-center" style="font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #4F46E5;
+                        ">About Us</h1>
+                        <p style="font-family: Poppins;
+                        font-size: 64px;
+                        font-weight: 500;
+                        line-height: 84px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #000000;
+
+                        ">We love to make great <br/>things,things that matter.</p>
+                       
+                        <p style="font-family: Poppins;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 28px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #000000;
+
+                        ">We're impartial and independent, and every day we create
                           distinctive ,world-class programmes
                           <br>and content which inform,educate and entertain millions of people in the around the world.
                         </p> 
+                        
                     </div>
+
+
+                  
+                        <div class="col-lg-12">
+                          <img src="/img/Visa/Visa/About Page/Image.png" alt="img" style="width: 100%;">
+                      
+</div>
+
+<div class="col-lg-12" style="background: url('/img/Visa/Visa/About Page/Illustration.png');
+background-size: contain;height: 600px;">
+  <p style="font-family: Poppins;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #4F46E5;
+  margin-top: 20px;
+  ">Our story</p>
+  <p style="font-family: Poppins;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 72px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  
+
+  ">We have been counselling students for <br> education
+    opportun in Foregin <br>Countries</p>
+  <p style="font-family: Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+
+  ">With a community of over 400 million users(and a
+    majority age group being 18 to 29 ),wouldn't you <br>want to make
+    sure you're monitoring what people are posting on social networks?</p>
+
+</div>
+
+                    
+            
+                </div>
+            </div>
+    
+          </section>
+
+
+
+
+          <section style="padding-top: 1rem;background-color: white;">
+            <div class=" translate-middle-x d-none d-xl-block ms-xl-n4 text-center" style="position: absolute;right:-2%;bottom: 20%;z-index: 1;"><img src="/img/Visa/Visa/About Page/Shape 2.png" alt="destination" style="height: 250px;" /></div>
+
+            <div class="container">
+
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-12 col-12 col-sm-12">
+                      <p style="font-family: Poppins;
+                      font-size: 20px;
+                      font-weight: 700;
+                      line-height: 32px;
+                      letter-spacing: 0em;
+                      text-align: left;
+                      color: #4F46E5;
+                      ">OUR CONSULTANT</p>
+                      <p style="font-family: Poppins;
+                      font-size: 48px;
+                      font-weight: 500;
+                      line-height: 72px;
+                      letter-spacing: 0em;
+                      text-align: left;
+                      color: #000000;
+
+                      ">Meet Our Dedicated Team</p>
+                      <p style="font-family: Poppins;
+                      font-size: 20px;
+                      font-weight: 400;
+                      line-height: 32px;
+                      letter-spacing: 0em;
+                      text-align: left;
+                      
+                      color: #000000;
+
+                      ">Cursus porta, feugiat primis in ultrice ligula risus auctor tempus dolor feugiat, felis lacinia risus interdum auctor id viverra dolor iaculis luctus placerat and massa</p>
+                     
+                    </div>
+
+
+                  
+
+                    
+
+            
+                </div>
+                <div class="row" style="margin-top: 5px;">
+             
+
+
+                  <div class="col-md-3 mb-3">
+                    <div class="card text-dark bg-white mb-3 card2">
+                      <img src="/img/Visa/Visa/About Page/Image12.png" alt="image" style="border-radius: 16px;height: 295px; ">
+                      <div class="card-body">
+                        <h3 class="card-title " style="font-family: Poppins;
+                        font-size: 28px;
+                        font-weight: 500;
+                        line-height: 48px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #000000;
+    
+                        "> Michael Scott</h3>
+                        <p class="card-text" style="font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #777777;
+                        width: 278px;
+    height: 64px;
+                        ">Lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit</p>
+                       
+            
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="col-md-3 mb-3">
+                    <div class="card text-dark bg-white mb-3 card2">
+                      <img src="/public/images/visa-image/images/COaching/Image-1.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
+                      <div class="card-body">
+                        <h3 class="card-title " style="font-family: Poppins;
+                        font-size: 28px;
+                        font-weight: 500;
+                        line-height: 48px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #000000;
+    
+                        "> Michael Scott</h3>
+                        <p class="card-text" style="font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #777777;
+                        width: 278px;
+    height: 64px;
+                        ">Lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit</p>
+                       
+            
+                      </div>
+                    </div>
+                  </div>
+    
                  
-
-                    <div class="col-lg-4">
-                        <img src="img/s1.png" alt="img">
-                      </div>
-
-                      <div class="col-lg-3 col-12">
-
-                        <div class="col-lg-12 col-12">
-                          <img src="img/s2.png" alt="img">
-                        </div>
-                        <div class="col-lg-12 col-12">
-                          <img src="img/s3.png" alt="img">
-                        </div>
-                
-                      </div>
-
-                      <div class="col-lg-4 ml-3">
-                        <img src="img/s4.png" alt="img">
-                      </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="card text-dark bg-white mb-3 card2">
+                      <img src="/public/images/visa-image/images/COaching/Image-2.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
+                      <div class="card-body">
+                        <h3 class="card-title " style="font-family: Poppins;
+                        font-size: 28px;
+                        font-weight: 500;
+                        line-height: 48px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #000000;
+    
+                        "> Michael Scott</h3>
+                        <p class="card-text" style="font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #777777;
+                        width: 278px;
+    height: 64px;
+                        ">Lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit</p>
+                       
             
-
-
-                      <p style="font-size:19px;"><b>Our story</b></p>
-                      <p style="font-size:50px; font-family: 'Heebo', sans-serif;">We have been counselling students for <br> education
-                        opportun in Foregin <br>Countries</p>
-                      <p style="font-size: 24px;font-family: 'Roboto', sans-serif;">With a community of over 400 million users(and a
-                        majority age group being 18 to 29 ),wouldn't you <br>want to make
-                        sure you're monitoring what people are posting on social networks?</p>
-
+                      </div>
+                    </div>
+                  </div>
+    
+    
+    
+                  <div class="col-md-3 mb-3">
+                    <div class="card text-dark bg-white mb-3 card2">
+                      <img src="/public/images/visa-image/images/COaching/Image-3.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
+                      <div class="card-body">
+                        <h3 class="card-title " style="font-family: Poppins;
+                        font-size: 28px;
+                        font-weight: 500;
+                        line-height: 48px;
+                        letter-spacing: 0em;
+                        text-align: center;
+                        color: #000000;
+    
+                        "> Michael Scott</h3>
+                        <p class="card-text" style="font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 400;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #777777;
+                        width: 278px;
+    height: 64px;
+                        ">Lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit</p>
+                       
             
+                      </div>
+                    </div>
+                  </div>
+                 
                 </div>
             </div>
     
@@ -56,31 +406,251 @@
           <!-- <section> close ============================-->
           <!-- ============================================-->
 
-          <section style="padding-top: 7rem;">
-            <div class="bg-holder" style="background-image:url('/public/images/visa-image/images/About Us/Illustration.jpg');">
-            </div>
-            <!--/.bg-holder-->
-    
+
+          <section style="padding-top: 1rem;background-color: white;">
+
             <div class="container">
-              <div class="row align-items-center">
-                <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 hero-img" src="/public/images/visa-image/images/homepage/unsplash_h58gEQi1Yss-removebg-preview.png" alt="hero-header" /></div>
-                <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
-                  <h1 class="hero-title">We make your dreams come true</h1>
-                  <p class="mb-4 fw-medium">We have a great teamworking hard to fulfill your dreams and we are decided to healp out in the whole process.</p>
-                  <div class="text-center text-md-start">
-                     <a class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow" style="border-radius: 50px;" href="#!" role="button">Learn more</a>
-                  
-                    <div class="modal fade" id="popupVideo" tabindex="-1" aria-labelledby="popupVideo" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                          <iframe class="rounded" style="width:100%;max-height:500px;" height="500px" src="https://www.youtube.com/embed/_lhdhL4UDIo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-12">
+          <div class=" translate-middle-x d-none d-xl-block ms-xl-n4 text-center" style="position: absolute;left:18%;top:2%"><img src="/img/Visa/Visa/About Page/Shape-1.png" alt="destination" style="height: 150px;" /></div>
+                      
+                        <h1 class="ab mt-5 pt-5 text-center" style="font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 32px;
+                        letter-spacing: 0em;
+                        text-align: left;
+                        color: #4F46E5;
+                        "></h1>
+                        <p style="font-family: Poppins;
+                        font-size: 48px;
+                        font-weight: 500;
+                        line-height: 48px;
+                        letter-spacing: 0px;
+                        text-align: center;
+                        
+                        color: #000000;
+
+                        ">Frequently asked questions</p>
+                       
+                       
+                        
+                    </div>
+
+
+  
+
+                    
+            
+                </div>
+            </div>
+    
+          </section>
+
+
+
+        
+
+
+          <section style="padding-top: 1rem;background-color: white;">
+
+            <div class="container">
+
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-12 col-12 col-sm-12">
+                 
+                      <div class="accordion w-100" id="basicAccordion">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingthree" 
+                          ">
+                            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                              data-mdb-target="#basicAccordionCollapsethree" aria-expanded="false" aria-controls="collapsethree" style="font-family: Poppins;
+                              font-size: 20px;
+                              font-weight: 500;
+                              line-height: 30px;
+                              letter-spacing: 0em;
+                              text-align: left;
+                              color: #4F46E5;">
+                              Why is my account associated with a country?
+                            </button>
+                          </h2>
+                          <div id="basicAccordionCollapsethree" class="accordion-collapse collapse" aria-labelledby="headingthree"
+                            data-mdb-parent="#basicAccordion" style="">
+                            <div class="accordion-body" style="font-family: Poppins;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 32px;
+                            letter-spacing: 0px;
+                            text-align: left;
+                            ">
+                              Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things: The Google affiliate that provides the services, that processes your information, 
+                            </div>
+                          </div>
                         </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingOne" 
+                          ">
+                            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                              data-mdb-target="#basicAccordionCollapseOne" aria-expanded="false" aria-controls="collapseOne" style="font-family: Poppins;
+                              font-size: 20px;
+                              font-weight: 500;
+                              line-height: 30px;
+                              letter-spacing: 0em;
+                              color: #4F46E5;
+                              text-align: left;">
+                              Why is my account associated with a country?
+                            </button>
+                          </h2>
+                          <div id="basicAccordionCollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-mdb-parent="#basicAccordion" style="">
+                            <div class="accordion-body" style="font-family: Poppins;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 32px;
+                            letter-spacing: 0px;
+                            text-align: left;
+                            ">
+                              Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things: The Google affiliate that provides the services, that processes your information, 
+                            </div>
+                          </div>
+                        </div>
+                    
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingtwo" 
+                          ">
+                            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                              data-mdb-target="#basicAccordionCollapsetwo" aria-expanded="false" aria-controls="collapsetwo" style="font-family: Poppins;
+                              font-size: 20px;
+                              font-weight: 500;
+                              line-height: 30px;
+                              letter-spacing: 0em;
+                              color: #4F46E5;
+                              text-align: left;">
+                              Why is my account associated with a country?
+                            </button>
+                          </h2>
+                          <div id="basicAccordionCollapsetwo" class="accordion-collapse collapse" aria-labelledby="headingtwo"
+                            data-mdb-parent="#basicAccordion" style="">
+                            <div class="accordion-body" style="font-family: Poppins;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 32px;
+                            letter-spacing: 0px;
+                            text-align: left;
+                            ">
+                              Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things: The Google affiliate that provides the services, that processes your information, 
+                            </div>
+                          </div>
+                        </div>
+                    
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingfourth" 
+                          ">
+                            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                              data-mdb-target="#basicAccordionCollapsefourth" aria-expanded="false" aria-controls="collapsefourth" style="font-family: Poppins;
+                              font-size: 20px;
+                              font-weight: 500;
+                              line-height: 30px;
+                              letter-spacing: 0em;
+                              color: #4F46E5;
+                              text-align: left;">
+                              Why is my account associated with a country?
+                            </button>
+                          </h2>
+                          <div id="basicAccordionCollapsefourth" class="accordion-collapse collapse" aria-labelledby="headingfourth"
+                            data-mdb-parent="#basicAccordion" style="">
+                            <div class="accordion-body" style="font-family: Poppins;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 32px;
+                            letter-spacing: 0px;
+                            text-align: left;
+                            ">
+                              Your account is associated with a country (or territory) in the Terms of Service so that we can determine two things: The Google affiliate that provides the services, that processes your information, 
+                            </div>
+                          </div>
+                        </div>
+                    
+                    
+                      </div>
+
+                    </div>
+
+
+                  
+
+                    
+
+            
+                </div>
+               
+            </div>
+    
+          </section>
+
+
+
+
+          <section style="background-color:white;">
+            <div class="container-fluid col-lg-12 bgg geta" style=" height: 400px;background: url('/img/Visa/Visa/Main Homepage/Hero Section/mail.png');background-size: cover;">
+              <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6 get" style="text-align:left;  color: white;  font-size: 20px;display: flex; margin-top: 10%;">
+                  <img class="input-box-icon" src="/img/Visa/Visa/Main Homepage/Hero Section/Group.png" width="90" alt="mail" style="margin-right: 20px;"/>
+                 <div style="font-family: Poppins;
+                 font-size: 24px;
+                 font-weight: 500;
+                 line-height: 32px;
+                 letter-spacing: 0em;
+    
+                 ">
+                  Get the latest news and offer
+                  <br/>
+                  <span style="font-family: Poppins;
+                  font-size: 36px;
+                  font-weight: 500;
+                  line-height: 40px;
+                  letter-spacing: 0em;
+                  text-align: center;
+                  ">Subscribe to our newsletter</span>
+                </div>
+          
+                
+                  </div>
+              <!-- <div class="col-lg-1 get" style="text-align: center;  color: white;  font-size: 20px; ">
+                
+                  <p style="margin: 0px;">
+                    <span>
+                  </span>  Get the latest news and offer
+                  <span><br/>Subscribe to our newsletter</span></p>
+                </div> -->
+                
+                <div class="col-lg-5" style="margin-top: 10%;">
+                  <form class="row g-3 align-items-center w-lg-75 mx-auto">
+                    <div class="col-sm">
+                      <div class="input-group-icon">
+                        <input class="form-control form-little-squirrel-control" style="border-radius: 50px;" type="email" placeholder="Enter email " aria-label="email" /><img class="input-box-icon" src="/public/assets/img/cta/mail.svg" width="17" alt="mail" />
                       </div>
                     </div>
-                  </div>
+                    <div class="col-sm-auto">
+                      <button class="btn btn-danger orange-gradient-btn fs--1">Subscribe</button>
+                    </div>
+                  </form>
+                
                 </div>
               </div>
             </div>
           </section>
+          
+          
+                         
 
+
+      
 <%- include ('./footer.ejs') %>
+<script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+></script>
+
