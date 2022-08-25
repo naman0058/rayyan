@@ -1,7 +1,7 @@
 
 let addgroup = []
 let wishes = []
-let table = 'add-holidays'
+let table = 'add-coaching'
 
 $.getJSON(`/leagues/show`, data => {
     addgroup = data
@@ -62,7 +62,7 @@ function makeTable(board){
     <div class="col">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
-          <h3 class="text-white mb-0">All Holidays</h3>
+          <h3 class="text-white mb-0">All Visa</h3>
           <br>
           <button type="button" id="back" class="btn btn-sm btn-primary">BacK</button>
         </div>
@@ -74,14 +74,8 @@ function makeTable(board){
             <thead class="thead-dark">
               <tr>
               <th scope="col">Name</th>
-              <th scope="col">Description 1</th>
-              <th scope="col">Description 2</th>
-
-              <th scope="col">Service Charge</th>
-
+             
                 <th scope="col">Image</th>
-                <th scope="col">Big Image</th>
-
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -100,37 +94,8 @@ function makeTable(board){
                     </th>
 
 
-                    
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.description1}</span>
-                        </div>
-                      </div>
-                    </th>
 
                     
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.description2}</span>
-                        </div>
-                      </div>
-                    </th>
-
-
-
-                
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.service_charge}</span>
-                        </div>
-                      </div>
-                    </th>
-                   
-                   
-
 
 
    <th scope="row">
@@ -141,16 +106,6 @@ function makeTable(board){
               
             </div>
           </th>
-
-
-          <th scope="row">
-          <div class="media align-items-center">
-            <a href="#" class="avatar rounded-circle mr-3">
-              <img alt="Image placeholder" src="/images/${item.image}">
-            </a>
-            
-          </div>
-        </th>
          
                     <td class="text-right">
                       <div class="dropdown">
@@ -199,17 +154,12 @@ $('#result').on('click', '.edit', function() {
     $('#pname').val(result.name)
     $('#pdescription1').val(result.description1)
     $('#pdescription2').val(result.description2)
-    $('#pservice_charge').val(result.service_charge)
+    $('#ptraining').val(result.training)
+    $('#poverview').val(result.overview)
+
+
  
 
-    let table = `<p>${result.price_include}</p>
-    `
-    $('.peditor').html(table)
-
-
-    let table1 = `<p>${result.apply_thing}</p>
-    `
-    $('.peditor1').html(table1)
 
 
     
@@ -221,18 +171,16 @@ $('#result').on('click', '.edit', function() {
 $('#update').click(function(){  //data insert in database
 
 
-    let content = $(".peditor").html().trim();
 
-    let content1 = $(".peditor1").html().trim();
 
     let updateobj = {
         id: $('#pid').val(),
         name: $('#pname').val(),
     description1: $('#pdescription1').val(),
         description2: $('#pdescription2').val(),
-        service_charge: $('#pservice_charge').val(),
-        price_include:content,
-        apply_thing:content1,
+        training:$('#ptraining').val(),
+        overview:$('#poverview').val()
+     
 
 
         

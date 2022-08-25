@@ -4,31 +4,19 @@ var upload = require('./multer');
 var pool = require('./pool')
 
 
-var table = 'holidays';
+var table = 'review';
 
 
 router.get('/',(req,res)=>{
-    res.render('add-holidays')
+    res.render('review')
 })
 
 
 
-router.post('/insert',upload.fields([{ name: 'logo', maxCount: 1 }, { name: 'image', maxCount: 1 }]),(req,res)=>{
+router.post('/insert',upload.single('logo'),(req,res)=>{
 	let body = req.body
- 
- 
-    if(req.files.logo){
-        body['logo'] = req.files.logo[0].filename
-      
-      }
-      
-        
-      if(req.files.image){
-          body['image'] = req.files.image[0].filename
-        }
+	body['logo'] = req.file.filename;
 	console.log(req.body)
-
-
 	pool.query(`insert into ${table} set ?`,body,(err,result)=>{
 		if(err) throw err;
 		else res.json({
@@ -65,22 +53,14 @@ router.post('/update', (req, res) => {
 
 
 
-router.post('/update_image',upload.fields([{ name: 'logo', maxCount: 1 }, { name: 'image', maxCount: 1 }]), (req, res) => {
+router.post('/update_image',upload.single('logo'), (req, res) => {
     let body = req.body;
 
-    if(req.files.logo){
-        body['logo'] = req.files.logo[0].filename
-      
-      }
-      
-        
-      if(req.files.image){
-          body['image'] = req.files.image[0].filename
-        }
+    body['logo'] = req.file.filename
 
     pool.query(`update ${table} set ? where id = ?`, [req.body, req.body.id], (err, result) => {
         if(err) throw err;
-       else  res.redirect('/add-holidays')
+       else  res.redirect('/review')
     })
 })
 

@@ -157,6 +157,8 @@ $('#result').on('click', '.edit', function() {
     $('#pservice').val(result.service)
     $('#pservice_charge').val(result.service_charge)
     $('#ptype').val(result.type)
+    $('#pbenifits').val(result.benifits)
+
 
  
 
@@ -186,6 +188,7 @@ $('#update').click(function(){  //data insert in database
         name: $('#pname').val(),
     description1: $('#pdescription1').val(),
         description2: $('#pdescription2').val(),
+        benifits:$('#pbenifits').val()
      
 
 

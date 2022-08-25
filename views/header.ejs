@@ -77,27 +77,34 @@ border: 2px solid white;
               <li class="nav-item dropdown px-3 px-lg-4"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Coaching</a>
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
                  
-                    <li><a class="dropdown-item" href="/coaching">IELTS Coaching</a></li>
+                  <% for(i=0;i<result[2].length;i++) { %>
+                    <li><a class="dropdown-item" href="/coaching/<%=result[2][i].name.replace(/[ ,]+/g, "-");%>"><%=result[2][i].name%></a></li>
+                    <% } %>
                     
                 </ul>
               </li>
               <li class="nav-item dropdown px-3 px-lg-4"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Visa</a>
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
-              <% for(i=0;i<result[0].length;i++) { %>
-                  <li><a class="dropdown-item" href="/visa_details"><%=result[0][i].name%></a></li>
+                  <li><a class="dropdown-item" href="/visa">Visa Services</a></li>
+           
+                  <% for(i=0;i<result[0].length;i++) { %>
+                  <li><a class="dropdown-item" href="/visa/<%=result[0][i].name.replace(/[ ,]+/g, "-");%>"><%=result[0][i].name%></a></li>
                   <% } %>
                 </ul>
               </li>
               <li class="nav-item dropdown px-3 px-lg-4"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Countries</a>
                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/countries">All Country</a></li>
+                
                   <% for(i=0;i<result[1].length;i++) { %>
-                    <li><a class="dropdown-item" href="/country_details"><%=result[1][i].name%></a></li>
+                    <li><a class="dropdown-item" href="/country/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>"><%=result[1][i].name%></a></li>
+
                     <% } %>
                 </ul>
               </li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/blogs">Blogs</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="/about-us">About us</a></li>
-              <li class="nav-item px-3 px-xl-4"> <a class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow" style="border-radius: 50px;" href="#!" role="button">Search</a></li>
+              <li class="nav-item px-3 px-xl-4"> <a class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow"  style="border-radius: 50px;" href="#!" role="button">Search</a></li>
              
           
             </ul>

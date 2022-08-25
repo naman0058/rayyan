@@ -5,21 +5,97 @@ var pool = require('./pool')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
-  var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query = `select id , name , logo , description1 from visa;`
+  var query1 = `select id , name , logo , description1 from country;`
+  var query2 = `select id , name from coaching;`
+  var query3 = `select * from review;`
+  var query4 = `select id , name , description1 , logo from blogs;`
+  pool.query(query+query1+query2+query3+query4,(err,result)=>{
     if(err) throw err;
     else res.render('index',{result})
   })
 
 });  
 
+
+
+
+router.get('/visa/:name',(req,res)=>{
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo , description1 from country;`
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
+    if(err) throw err;
+    else res.render('countries',{result,name:req.params.name})
+  })
+})
+
+
+
+router.get('/visa/:name/:country',(req,res)=>{
+  let visaname = req.params.name.replace('-', ' ')
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo , description1 from country;`
+  var query2 = `select id , name  from coaching;`
+  var query3 = `select * from visa where name = '${visaname}';`
+  var query4 = `select * from visa where name!= '${visaname}';`
+  var query5 = `select * from instructor where countryid = '1';`
+  var query6 = `select id , name from coaching;`
+
+
+
+  pool.query(query+query1+query2+query3+query4+query5+query6,(err,result)=>{
+    if(err) throw err;
+    else res.render('visa_details',{result,name:req.params.name,countryname:req.params.country})
+  })
+})
+
+
+
+
+
+router.get('/country/:name',(req,res)=>{
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo , description1 from country;`
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
+    if(err) throw err;
+    else res.render('visa1',{result,name:req.params.name})
+  })
+})
+
+
+
+
+
+router.get('/country/:country/:name',(req,res)=>{
+  let visaname = req.params.name.replace('-', ' ')
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo , description1 from country;`
+  var query2 = `select id , name  from coaching;`
+  var query3 = `select * from visa where name = '${visaname}';`
+  var query4 = `select * from visa where name!= '${visaname}';`
+  var query5 = `select * from instructor where countryid = '1';`
+  var query6 = `select id , name from coaching;`
+
+
+
+
+  pool.query(query+query1+query2+query3+query4+query5+query6,(err,result)=>{
+    if(err) throw err;
+    else res.render('visa_details',{result,name:req.params.name,countryname:req.params.country})
+  })
+})
+
+
+
 // Done
 
 router.get('/contact-us', function(req, res, next) {
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
     else res.render('contactus',{result})
   })
@@ -31,7 +107,10 @@ router.get('/contact-us', function(req, res, next) {
 router.get('/blogs', function(req, res, next) {
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  var query3 = `select id , name , description1 , logo from blogs;`
+
+  pool.query(query+query1+query2+query3,(err,result)=>{
     if(err) throw err;
     else res.render('jobs',{result})
   })
@@ -39,15 +118,39 @@ router.get('/blogs', function(req, res, next) {
 });
 
 
+
+router.get('/blogs-details', function(req, res, next) {
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  var query2 = `select id , name from coaching;`
+  var query3 = `select * from blogs where id = '${req.query.id}';`
+
+  pool.query(query+query1+query2+query3,(err,result)=>{
+    if(err) throw err;
+    else res.render('blogs_details',{result})
+  })
+
+});
+
+
+router.post('/blog-details-by-id',(req,res)=>{
+  console.log(req.body)
+  pool.query(`select * from blogs where id = '${req.body.blogid}'`,(err,result)=>{
+    if(err) throw err;
+    else res.json(result)
+  })
+})
+
 // Done
 
 
 router.get('/countries', function(req, res, next) {
   var query = `select id , name , logo from visa;`
-  var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query1 = `select id , name , logo , description1 from country;`
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
-    else res.render('countries',{result})
+    else res.render('countries1',{result})
   })
 
 }); 
@@ -56,9 +159,10 @@ router.get('/countries', function(req, res, next) {
 
 
 router.get('/visa', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo , description1 from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
     else res.render('visa',{result})
   })
@@ -70,7 +174,8 @@ router.get('/visa', function(req, res, next) {
 router.get('/courses', function(req, res, next) {
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
     else res.render('courses',{result})
   })
@@ -78,10 +183,14 @@ router.get('/courses', function(req, res, next) {
 });
 // Done 
 
-router.get('/coaching', function(req, res, next) {
+router.get('/coaching/:name', function(req, res, next) {
+  let coachingname = req.params.name.replace('-', ' ')
+
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  var query3 = `select * from coaching where name = '${coachingname}';`
+  pool.query(query+query1+query2+query3,(err,result)=>{
     if(err) throw err;
     else res.render('coaching',{result})
   })
@@ -94,7 +203,8 @@ router.get('/coaching', function(req, res, next) {
 router.get('/visa_details', function(req, res, next) {
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
     else res.render('visa_details',{result})
   })
@@ -107,7 +217,8 @@ router.get('/visa_details', function(req, res, next) {
 router.get('/country_details', function(req, res, next) {
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
     else res.render('country_details',{result})
   })
@@ -120,7 +231,8 @@ router.get('/country_details', function(req, res, next) {
 router.get('/about-us', function(req, res, next) {
   var query = `select id , name , logo from visa;`
   var query1 = `select id , name , logo from country;`
-  pool.query(query+query1,(err,result)=>{
+  var query2 = `select id , name from coaching;`
+  pool.query(query+query1+query2,(err,result)=>{
     if(err) throw err;
     else res.render('aboutus',{result})
   })
@@ -146,7 +258,7 @@ pool.query(`select * from admin where email = '${req.body.email}' and password =
   else if(result[0]){
 
          req.session.propertyadmin = result[0].id;
-         res.redirect('/admin')
+         res.redirect('/add-blogs')
   }
   else{
     res.render('admin-login',{msg:'Invalid Credentials'})

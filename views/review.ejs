@@ -98,7 +98,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0">Add Country</h3>
+                    <h3 class="mb-0">Add Review</h3>
                   </div>
                   <div class="col-4 text-right">
                     <button type="button" id="show" class="btn btn-sm btn-primary">Show</button>
@@ -107,7 +107,7 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-country/insert" method="post" enctype="multipart/form-data" class="uploadImage">
+            <form action="/review/insert" method="post" enctype="multipart/form-data" class="uploadImage">
               <div class="pl-lg-4">
          
 
@@ -130,20 +130,14 @@
 
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                           <div class="form-group">
                             <label class="form-control-label" for="input-username">Decription1</label>
                             <textarea type="text" id="input-email" name="description1" class="form-control form-control-alternative"></textarea>
 
                           </div>
                         </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-email">Description2</label>
-                            <textarea type="text" id="input-email" name="description2" class="form-control form-control-alternative"></textarea>
-
-                          </div>
-                        </div>
+                      
                       </div>
 
 
@@ -186,7 +180,7 @@
           <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">Edit country</h3>
+                  <h3 class="mb-0">Edit Review</h3>
                 </div>
                 <div class="col-4 text-right">
                   <button type="button" id="back1" class="btn btn-sm btn-primary">Back</button>
@@ -214,20 +208,14 @@
 
 
                   <div class="row">
-                      <div class="col-lg-6">
+                      <div class="col-lg-12">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Decription1</label>
                           <textarea type="text" id="pdescription1" class="form-control form-control-alternative"></textarea>
 
                         </div>
                       </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Description2</label>
-                          <textarea type="text" id="pdescription2" class="form-control form-control-alternative"></textarea>
-
-                        </div>
-                      </div>
+                     
                     </div>
 
 
@@ -269,7 +257,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0">Update Country Logo</h3>
+                    <h3 class="mb-0">Update Review Logo</h3>
                   </div>
                   <div class="col-4 text-right">
                     <button type="button" id="back2" class="btn btn-sm btn-primary">Back</button>
@@ -278,7 +266,7 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-country/update_image" method="post" enctype="multipart/form-data">
+            <form action="/review/update_image" method="post" enctype="multipart/form-data">
               <div class="pl-lg-4">
                 <div class="row">
                   <div class="col-lg-6">
@@ -295,13 +283,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <button type="submit" id="update" class="btn btn-info">Update Image</button>
-                    </div>
-                  </div>
-                </div>
+          
                 </form>
           </div>
         </div>
@@ -329,7 +311,7 @@
   <!-- Argon JS -->
   <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
   
-  <script type="text/javascript" src="/javascripts/country.js"></script>
+  <script type="text/javascript" src="/javascripts/review.js"></script>
 
 
 

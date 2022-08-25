@@ -1,5 +1,5 @@
 <%- include ('./header.ejs') %>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 
 <style>
     label{
@@ -27,7 +27,7 @@
               letter-spacing: 0em;
               text-align: left;
               
-              ">Student Visa in USA</h1>
+              "><%=name.replace('-', ' ');%> in <%=countryname.replace('-', ' ');%></h1>
               <p class="mb-4" style="font-family: Poppins;
               font-size: 18px;
               font-weight: 400;
@@ -37,7 +37,7 @@
               
               color: #000000;
 
-              ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus integer ornare lorem nunc tortor vel, tortor at. </p>
+              "><%=result[3][0].description1%> </p>
               <div class="text-center text-md-start">
               
                 <div class="modal fade" id="popupVideo" tabindex="-1" aria-labelledby="popupVideo" aria-hidden="true">
@@ -63,7 +63,7 @@
         <div class="container">
           <div class="row align-items-center">
             
-            <div class="col-md-5 col-lg-6 text-end"><img class="pt-7 pt-md-0 hero-img myimage" src="/public/images/visa-image/images/Coaching details/Rectangle 19.jpg" alt="hero-header" /></div>
+            <div class="col-md-5 col-lg-6 text-end"><img class="pt-7 pt-md-0 hero-img myimage" src="/images/<%=result[3][0].logo%>" alt="hero-header" style="border-radius:8px;height:376px" /></div>
             <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
                 <h1 class="hero-titl" style="font-family: Poppins;
                 font-size: 32px;
@@ -73,7 +73,7 @@
                 text-align: left;
                 
                 
-                ">Student Visa Immigration</h1>
+                "><%=result[3][0].name%> Immigration</h1>
                 <p class="mb-4 fw-medium" style="font-family: Poppins;
                 font-size: 18px;
                 font-weight: 400;
@@ -81,7 +81,7 @@
                 letter-spacing: 0.01em;
                 text-align: left;
                 
-                ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie tellus, lacus venenatis, turpis. Vestibulum eu odio in quis dolor, at nisi. Amet, phasellus nunc, gravida amet. Senectus habitasse turpis varius eu, ultricies. Sagittis, nec aliquam ultricies a massa. Diam porttitor eu et non. Et enim sociis in facilisis et volutpat dolor. Volutpat tristique neque malesuada egestas </p>
+                "><%=result[3][0].description2%> </p>
                 <div class="text-center text-md-start">
                 
                   <div class="modal fade" id="popupVideo" tabindex="-1" aria-labelledby="popupVideo" aria-hidden="true">
@@ -243,7 +243,7 @@
             letter-spacing: 0.01em;
             text-align: left;
             
-            ">Visa Benefits</h3>
+            "><%=result[3][0].name%> Benefits</h3>
             <p style="font-family: Poppins;
             font-size: 18px;
             font-weight: 400;
@@ -252,7 +252,7 @@
             text-align: left;
             margin-top:40px
             
-            ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Gravida fames sodales amet imperdiet nunc viverra elit, lorem. Ut tortor amet, risus adipiscing sit sem leo mauris. Lorem id lectus tempor nisl cursus lacinia diam sit. Et sodales integer tortor phasellus quis sollicitudin at integer. Maecenas ullamcorper nulla ultricies condimentum morbi. Arcu cras sociis quis urna, etiam eget pretium est id. Nunc, magna sem convallis gravida ullamcorper hac. Mattis aliquam risus et quis  </p>
+            "><%=result[3][0].benifits%>  </p>
           </div>
       
         </div><!-- end of .container-->
@@ -450,9 +450,11 @@ color: #000000;
              
 
 
+            <% for(i=0;i<result[5].length;i++){ %>
+
               <div class="col-md-3 mb-3">
                 <div class="card text-dark bg-white mb-3 card2">
-                  <img src="/public/images/visa-image/images/COaching/Image.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
+                  <img src="/images/<%=result[5][i].logo%>" alt="image" style="border-radius: 16px;height: 295px; ">
                   <div class="card-body">
                     <h3 class="card-title " style="font-family: Poppins;
                     font-size: 28px;
@@ -462,7 +464,7 @@ color: #000000;
                     text-align: center;
                     color: #000000;
 
-                    "> Michael Scott</h3>
+                    "><%=result[5][i].name%></h3>
                     <p class="card-text" style="font-family: Poppins;
                     font-size: 20px;
                     font-weight: 400;
@@ -472,106 +474,14 @@ color: #000000;
                     color: #777777;
                     width: 278px;
 height: 64px;
-                    ">Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit</p>
+                    "><%=result[5][i].description1%></p>
                    
         
                   </div>
                 </div>
               </div>
 
-              <div class="col-md-3 mb-3">
-                <div class="card text-dark bg-white mb-3 card2">
-                  <img src="/public/images/visa-image/images/COaching/Image-1.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
-                  <div class="card-body">
-                    <h3 class="card-title " style="font-family: Poppins;
-                    font-size: 28px;
-                    font-weight: 500;
-                    line-height: 48px;
-                    letter-spacing: 0em;
-                    text-align: center;
-                    color: #000000;
-
-                    "> Michael Scott</h3>
-                    <p class="card-text" style="font-family: Poppins;
-                    font-size: 20px;
-                    font-weight: 400;
-                    line-height: 32px;
-                    letter-spacing: 0em;
-                    text-align: left;
-                    color: #777777;
-                    width: 278px;
-height: 64px;
-                    ">Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit</p>
-                   
-        
-                  </div>
-                </div>
-              </div>
-
-             
-              <div class="col-md-3 mb-3">
-                <div class="card text-dark bg-white mb-3 card2">
-                  <img src="/public/images/visa-image/images/COaching/Image-2.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
-                  <div class="card-body">
-                    <h3 class="card-title " style="font-family: Poppins;
-                    font-size: 28px;
-                    font-weight: 500;
-                    line-height: 48px;
-                    letter-spacing: 0em;
-                    text-align: center;
-                    color: #000000;
-
-                    "> Michael Scott</h3>
-                    <p class="card-text" style="font-family: Poppins;
-                    font-size: 20px;
-                    font-weight: 400;
-                    line-height: 32px;
-                    letter-spacing: 0em;
-                    text-align: left;
-                    color: #777777;
-                    width: 278px;
-height: 64px;
-                    ">Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit</p>
-                   
-        
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="col-md-3 mb-3">
-                <div class="card text-dark bg-white mb-3 card2">
-                  <img src="/public/images/visa-image/images/COaching/Image-3.jpg" alt="image" style="border-radius: 16px;height: 295px; ">
-                  <div class="card-body">
-                    <h3 class="card-title " style="font-family: Poppins;
-                    font-size: 28px;
-                    font-weight: 500;
-                    line-height: 48px;
-                    letter-spacing: 0em;
-                    text-align: center;
-                    color: #000000;
-
-                    "> Michael Scott</h3>
-                    <p class="card-text" style="font-family: Poppins;
-                    font-size: 20px;
-                    font-weight: 400;
-                    line-height: 32px;
-                    letter-spacing: 0em;
-                    text-align: left;
-                    color: #777777;
-                    width: 278px;
-height: 64px;
-                    ">Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit</p>
-                   
-        
-                  </div>
-                </div>
-              </div>
+            <% } %>
              
             </div>
           </div><!-- end of .container-->
@@ -597,9 +507,16 @@ height: 64px;
                 ">Other Visa Services</h3>
               </div>
               <div class="row">
+               
+               
+               
+               
+               <% for(i=0;i<result[4].length;i++){ %>
                 <div class="col-md-4 mb-4">
+<a href="/visa/<%=result[4][i].name.replace(' ' , '-')%>/<%=countryname%>" style='text-decoration:none'>
+
                   <div class="card text-dark bg-white mb-3 card2">
-                    <img src="/public/images/visa-image/images/Visa details/Image-4.jpg" alt="image" style="border-radius: 16px 16px 0px 0px;height: 343px;">
+                    <img src="/images/<%=result[4][i].logo%>" alt="image" style="border-radius: 16px 16px 0px 0px;height: 343px;">
                     <div class="card-body">
                       <h3 class="card-title " style="font-family: Poppins;
                       font-size: 20px;
@@ -607,7 +524,7 @@ height: 64px;
                       line-height: 20px;
                       letter-spacing: 0em;
                       text-align: left;
-                      "> Student Visa</h3>
+                      "> <%=result[4][i].name%></h3>
                       <p class="card-text" style="font-family: Poppins;
                       font-size: 12px;
                       font-weight: 500;
@@ -620,85 +537,17 @@ height: 64px;
   top: 393px;
   border-radius: nullpx;
   
-                      ">Studying In The United State of America quis nostrud
-                        exercitation. Studying in the Australia quis nostrud exercitation
-                        ullamco laboris.</p>
+                      "><%=result[4][i].description1%></p>
                      
           
                     </div>
                   </div>
+                  </a>
                 </div>
+  <% } %>
   
   
   
-  
-                <div class="col-md-4 mb-4">
-                  <div class="card text-dark bg-white mb-3 card2">
-                    <img src="/public/images/visa-image/images/Visa details/Image-5.jpg" alt="image" style="border-radius: 16px 16px 0px 0px;height: 343px;">
-                    <div class="card-body">
-                      <h3 class="card-title " style="font-family: Poppins;
-                      font-size: 20px;
-                      font-weight: 600;
-                      line-height: 20px;
-                      letter-spacing: 0em;
-                      text-align: left;
-                      "> Student Visa</h3>
-                      <p class="card-text" style="font-family: Poppins;
-                      font-size: 12px;
-                      font-weight: 500;
-                      line-height: 20px;
-                      letter-spacing: 0em;
-                      text-align: left;
-                      height: 60px;
-  width: 379px;
-  left: 14px;
-  top: 393px;
-  border-radius: nullpx;
-  
-                      ">Studying In The United State of America quis nostrud
-                        exercitation. Studying in the Australia quis nostrud exercitation
-                        ullamco laboris.</p>
-                     
-          
-                    </div>
-                  </div>
-                </div>
-  
-  
-  
-  
-  
-                <div class="col-md-4 mb-4">
-                  <div class="card text-dark bg-white mb-3 card2">
-                    <img src="/public/images/visa-image/images/Visa details/Image-6.jpg" alt="image" style="border-radius: 16px 16px 0px 0px;height: 343px;">
-                    <div class="card-body">
-                      <h3 class="card-title " style="font-family: Poppins;
-                      font-size: 20px;
-                      font-weight: 600;
-                      line-height: 20px;
-                      letter-spacing: 0em;
-                      text-align: left;
-                      "> Student Visa</h3>
-                      <p class="card-text" style="font-family: Poppins;
-                      font-size: 12px;
-                      font-weight: 500;
-                      line-height: 20px;
-                      letter-spacing: 0em;
-                      text-align: left;
-                      height: 60px;
-  width: 379px;
-  left: 14px;
-  top: 393px;
-  border-radius: nullpx;
-  
-                      ">Studying In The United State of America quis nostrud
-                        exercitation. Studying in the Australia quis nostrud exercitation
-                        ullamco laboris.</p>
-                     
-          
-                    </div>
-                  </div>
-                </div>
   
               
               </div>

@@ -98,7 +98,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0">Add Holidays</h3>
+                    <h3 class="mb-0">Add blogs</h3>
                   </div>
                   <div class="col-4 text-right">
                     <button type="button" id="show" class="btn btn-sm btn-primary">Show</button>
@@ -107,7 +107,7 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-holidays/insert" method="post" enctype="multipart/form-data" class="uploadImage">
+            <form action="/add-blogs/insert" method="post" enctype="multipart/form-data" class="uploadImage">
               <div class="pl-lg-4">
          
 
@@ -147,7 +147,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
       
             <div class="container">
-              <label>Benifits</label>
+              <label>Blogging Content</label>
              
               <div class="editor-toolbar">
                 <div class="dropdown">
@@ -192,52 +192,7 @@
             
 
 
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-              
-        
-                    <div class="container">
-                      <label>Stay Options
-                    </label>
-                     
-                      <div class="editor-toolbar">
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="headingMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                            Heading
-                            <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="headingMenu">
-                            <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h1')" class="h1">Heading 1</a></li>
-                            <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h2')" class="h2">Heading 2</a></li>
-                            <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h3')" class="h3">Heading 3</a></li>          
-                            <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h4')" class="h4">Heading 4</a></li>
-                          </ul>
-                        </div>
-                        
-                        
-                        <a href="javascript:void(0)" role="button" class="toolbar-btn unselectable" onclick="runCommand(this, 'bold', null)" unselectable="on"><i class="fa fa-bold"></i></a>
-                        <a href="javascript:void(0)" role="button" class="toolbar-btn" onclick="runCommand(this, 'italic', null)"><i class="fa fa-italic"></i></a>
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'underline', null)"><i class="fa fa-underline"></i></a> 
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'indent', null)"><i class="fa fa-indent"></i></a> 
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'insertUnorderedList', null)"><i class="fa fa-list-ul"></i></a> 
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'insertOrderedList', null)"><i class="fa fa-list-ol"></i></a>
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'createLink', null)"><i class="fa fa-link"></i></a>
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'unlink', null)"><i class="fa fa-unlink"></i></a>
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'redo', null)"><i class="fa fa-repeat"></i></a>
-                        <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'undo', null)"><i class="fa fa-undo"></i></a>         
-                      </div>
-                      
-                      <div id="editor1" class="editor"  contenteditable="true"></div>
-                      <!-- <textarea  id="messageText" type="hidden" class="pdescription" name = 'description' ></textarea> -->
-                      
-                      <!-- <div class="row">
-                        <div class="col-sm-2">
-                          <button id="submit" class="btn btn-default btn-block" type="submit">Submit</button>
-                        </div>
-                      </div> -->
-                    </div>
-                   </div>
-                   </div>
+    
 
                    
                     
@@ -339,15 +294,7 @@
                     </div>
 
 
-                    <div class="row">
-                     
-                      <div class="col-lg-12">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Service Charge</label>
-                          <input type="text" id="pservice_charge" class="form-control form-control-alternative">
-                        </div>
-                      </div>
-                    </div>
+              
 
 
                     
@@ -355,7 +302,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
     
           <div class="container">
-            <label>Price Inclusion</label>
+            <label>Content</label>
            
             <div class="editor-toolbar">
               <div class="dropdown">
@@ -400,52 +347,7 @@
           
 
 
-          <div class="row">
-              <div class="col-lg-12 col-md-12 col-sm-12">
-            
-      
-                  <div class="container">
-                    <label>What do I need to apply
-                  </label>
-                   
-                    <div class="editor-toolbar">
-                      <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="headingMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                          Heading
-                          <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="headingMenu">
-                          <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h1')" class="h1">Heading 1</a></li>
-                          <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h2')" class="h2">Heading 2</a></li>
-                          <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h3')" class="h3">Heading 3</a></li>          
-                          <li><a href="javascript:void(0)" onclick="runCommand(this, 'formatBlock', 'h4')" class="h4">Heading 4</a></li>
-                        </ul>
-                      </div>
-                      
-                      
-                      <a href="javascript:void(0)" role="button" class="toolbar-btn unselectable" onclick="runCommand(this, 'bold', null)" unselectable="on"><i class="fa fa-bold"></i></a>
-                      <a href="javascript:void(0)" role="button" class="toolbar-btn" onclick="runCommand(this, 'italic', null)"><i class="fa fa-italic"></i></a>
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'underline', null)"><i class="fa fa-underline"></i></a> 
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'indent', null)"><i class="fa fa-indent"></i></a> 
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'insertUnorderedList', null)"><i class="fa fa-list-ul"></i></a> 
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'insertOrderedList', null)"><i class="fa fa-list-ol"></i></a>
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'createLink', null)"><i class="fa fa-link"></i></a>
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'unlink', null)"><i class="fa fa-unlink"></i></a>
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'redo', null)"><i class="fa fa-repeat"></i></a>
-                      <a href="javascript:void(0)" role="button" onclick="runCommand(this, 'undo', null)"><i class="fa fa-undo"></i></a>         
-                    </div>
-                    
-                    <div id="editor1" class="peditor1"  contenteditable="true"></div>
-                    <!-- <textarea  id="messageText" type="hidden" class="pdescription" name = 'description' ></textarea> -->
-                    
-                    <!-- <div class="row">
-                      <div class="col-sm-2">
-                        <button id="submit" class="btn btn-default btn-block" type="submit">Submit</button>
-                      </div>
-                    </div> -->
-                  </div>
-                 </div>
-                 </div>
+     
 
          
           
@@ -485,7 +387,7 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-holidays/update_image" method="post" enctype="multipart/form-data">
+            <form action="/add-blogs/update_image" method="post" enctype="multipart/form-data">
               <div class="pl-lg-4">
                 <div class="row">
                     <input type="hidden" name="id" id="peid"  class="form-control form-control-alternative"
@@ -538,7 +440,7 @@
   <!-- Argon JS -->
   <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
   
-  <script type="text/javascript" src="/javascripts/holidays.js"></script>
+  <script type="text/javascript" src="/javascripts/blogs.js"></script>
 
 
 
@@ -548,12 +450,11 @@
     $('.uploadImage').submit(function (e) {
       e.preventDefault();
       let price_include = $("#editor").html().trim();
-      let apply_thing = $("#editor1").html().trim();
     
       // var title = $('#title').val(); 
   
       $(this).ajaxSubmit({
-         data: {price_include: price_include , apply_thing:apply_thing},
+         data: {content: price_include },
         contentType: 'application/json',
         success: function (response) {
           console.log(response)

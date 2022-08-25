@@ -1,27 +1,14 @@
 
 let addgroup = []
 let wishes = []
-let addgroup1 = []
-let table = 'instructors'
+let table = 'review'
 
-
-$.getJSON(`/add-coaching/show`, data => {
+$.getJSON(`/leagues/show`, data => {
     addgroup = data
-    console.log('leaguesssss',data)
-    fillDropDown('coachingid', data, 'Choose Coaching', 0)
+    console.log('leagues',data)
+    fillDropDown('leagueid', data, 'Choose League Name', 0)
   
 })
-
-
-$.getJSON(`/add-country/show`, data => {
-  addgroup1 = data
-  console.log('leaguesaa',data)
-  fillDropDown('countryid', data, 'Choose Country', 0)
-
-})
-
-
-
 
 $('#show').click(function(){
 $.getJSON(`/${table}/show`, data => {
@@ -75,7 +62,7 @@ function makeTable(board){
     <div class="col">
       <div class="card bg-default shadow">
         <div class="card-header bg-transparent border-0">
-          <h3 class="text-white mb-0">All Instructors</h3>
+          <h3 class="text-white mb-0">All Country</h3>
           <br>
           <button type="button" id="back" class="btn btn-sm btn-primary">BacK</button>
         </div>
@@ -87,9 +74,6 @@ function makeTable(board){
             <thead class="thead-dark">
               <tr>
               <th scope="col">Name</th>
-              <th scope="col">Coaching Name</th>
-              <th scope="col">Country Name</th>
-
              
                 <th scope="col">Image</th>
                 <th scope="col"></th>
@@ -109,23 +93,6 @@ function makeTable(board){
                       </div>
                     </th>
 
-
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.coachingname}</span>
-                        </div>
-                      </div>
-                    </th>
-
-
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <div class="media-body">
-                          <span class="mb-0 text-sm">${item.countryname}</span>
-                        </div>
-                      </div>
-                    </th>
 
 
                     
@@ -179,22 +146,15 @@ $('#result').on('click', '.delete', function() {
 $('#result').on('click', '.edit', function() {
     const id = $(this).attr('id')
     const result = wishes.find(item => item.id == id);
-    fillDropDown('pcoachingid', addgroup, 'Coaching Name', result.coachingid)
-    fillDropDown('pcountryid', addgroup1, 'Country Name', result.countryid)
-
+    fillDropDown('pleagueid', addgroup, 'League Name', result.leagueid)
     $('#editdiv').show()
     $('#insertdiv').hide() 
     $('#result').hide()
     $('#pid').val(result.id)
     $('#pname').val(result.name)
     $('#pdescription1').val(result.description1)
-    $('#pcountryid').val(result.countryid)
+    $('#pdescription2').val(result.description2)
    
- 
-
-  
-
-    
 
  })
 
@@ -209,8 +169,10 @@ $('#update').click(function(){  //data insert in database
         id: $('#pid').val(),
         name: $('#pname').val(),
     description1: $('#pdescription1').val(),
-    coachingid:$('#pcoachingid').val(),
-    countryid:$('#pcountryid').val()
+     
+
+
+        
       
     }
 

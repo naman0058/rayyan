@@ -60,7 +60,7 @@ router.post('/update_image',upload.single('logo'), (req, res) => {
 
     pool.query(`update ${table} set ? where id = ?`, [req.body, req.body.id], (err, result) => {
         if(err) throw err;
-       else  res.redirect('/country')
+       else  res.redirect('/add-country')
     })
 })
 

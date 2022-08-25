@@ -4,19 +4,31 @@ var upload = require('./multer');
 var pool = require('./pool')
 
 
-var table = 'instructor';
+var table = 'blogs';
 
 
 router.get('/',(req,res)=>{
-    res.render('state')
+    res.render('add-blogs')
 })
 
 
 
-router.post('/insert',upload.single('logo'),(req,res)=>{
+router.post('/insert',upload.fields([{ name: 'logo', maxCount: 1 }, { name: 'image', maxCount: 1 }]),(req,res)=>{
 	let body = req.body
-	body['logo'] = req.file.filename;
+ 
+ 
+    if(req.files.logo){
+        body['logo'] = req.files.logo[0].filename
+      
+      }
+      
+        
+      if(req.files.image){
+          body['image'] = req.files.image[0].filename
+        }
 	console.log(req.body)
+
+
 	pool.query(`insert into ${table} set ?`,body,(err,result)=>{
 		if(err) throw err;
 		else res.json({
@@ -27,9 +39,7 @@ router.post('/insert',upload.single('logo'),(req,res)=>{
 
 
 router.get('/show',(req,res)=>{
-	pool.query(`select t.* , (select c.name from coaching c where c.id = t.coachingid) as coachingname , 
-    (select c.name from country c where c.id = t.countryid) as countryname 
-    from ${table} t`,(err,result)=>{
+	pool.query(`select * from ${table}`,(err,result)=>{
 		err ? console.log(err) : res.json(result)
 	})
 })
@@ -55,14 +65,22 @@ router.post('/update', (req, res) => {
 
 
 
-router.post('/update_image',upload.single('logo'), (req, res) => {
+router.post('/update_image',upload.fields([{ name: 'logo', maxCount: 1 }, { name: 'image', maxCount: 1 }]), (req, res) => {
     let body = req.body;
 
-    body['logo'] = req.file.filename
+    if(req.files.logo){
+        body['logo'] = req.files.logo[0].filename
+      
+      }
+      
+        
+      if(req.files.image){
+          body['image'] = req.files.image[0].filename
+        }
 
     pool.query(`update ${table} set ? where id = ?`, [req.body, req.body.id], (err, result) => {
         if(err) throw err;
-       else  res.redirect('/instructors');
+       else  res.redirect('/add-blogs')
     })
 })
 
