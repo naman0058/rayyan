@@ -11,7 +11,7 @@
   
           <div class="container">
             <div class="row">
-              <div class="col-lg-4 col-md-7 col-12 mb-4 mb-md-6 mb-lg-0 order-0" style="font-size: 32px;color: #4f46e5;"> 
+              <div class="col-lg-3 col-md-4 col-12 mb-4 mb-md-6 mb-lg-0 order-0" style="font-size: 32px;color: #4f46e5;"> 
                 <img src="/images/logo.png" style="width: 150px;">
                 <!-- <p class="fs--1 text-secondary mb-0 " style="
                 font-family: Manrope;
@@ -35,7 +35,7 @@ border-radius: nullpx;
                 
               </p> 
               </div>
-              <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
+              <div class="col-lg-1 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
   </div>
               <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
                 <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4" style="
@@ -148,7 +148,7 @@ border-radius: nullpx;
 
 
 
-              <div class="col-lg-2 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
+              <div class="col-lg-3 col-md-4 mb-4 mb-lg-0 order-lg-1 order-md-2">
                 <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4" style="
                 font-family: Manrope;
                 font-size: 20px;
@@ -161,7 +161,6 @@ border-radius: nullpx;
                   <li class="mb-2"><a class="link-900 fs-1  text-decoration-none" href="#!" style="
                     font-family: Manrope;
                     font-size: 14px;
-                    display: flex;
                     font-weight: 400;
                     line-height: 24px;
                     letter-spacing: 0em;
@@ -301,6 +300,27 @@ $(".form-group").addClass("sb-search-open");
       }
     }
   }
+
+
+ 
+$('.subscribe_button').click(function(){
+  var txt = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  var email = $('.subscribe_email').val()
+  if($('.subscribe_email').val() == null || $('.subscribe_email').val() == [] || $('.subscribe_email').val() == '' || $('.subscribe_email').val() == 'null') alert('Enter Email')
+  else if(!txt.test(email)) alert('Invalid Email')
+  else{
+    $.post('/subscribe/insert',{email},data=>{
+      if(data.status=='500'){
+        alert('Already Subscribed')
+      }
+      else{
+        alert('Thankyou for subscribing us.')
+
+      }
+      })
+  }
+})
+
   </script>
 
   </html>

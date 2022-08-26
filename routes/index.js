@@ -719,10 +719,67 @@ today = yyyy + '-' + mm + '-' + dd;
 
 
 
+router.post('/subscribe/insert',(req,res)=>{
+	let body = req.body
+	console.log(req.body)
+  
+
+var today = new Date();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+
+
+  body['date'] = today;
+  body['time'] = time;
+pool.query(`select * from subscribe where email = '${req.body.email}'`,(err,result)=>{
+  if(err) throw err;
+  else if(result[0]){
+res.json({
+  status : 500
+})
+  }
+  else{
+    pool.query(`insert into subscribe set ?`,body,(err,result)=>{
+      if(err) throw err;
+      else res.json({
+        status:200
+      })
+    })
+  }
+})
+	
+})
+
+
+
 router.get('/contact/delete',(req,res)=>{
   pool.query(`delete from contact where id = '${req.query.id}'`,(err,result)=>{
     if(err) throw err;
     else res.redirect('/all-contact');
+  })
+})
+
+
+
+router.get('/all-subscribe',(req,res)=>{
+  pool.query(`select e.* from subscribe e order by id desc`,(err,result)=>{
+    if(err) throw err;
+    else res.render('show_subscribe',{result:result})
+  })
+})
+
+
+
+
+router.get('/subscribe/delete',(req,res)=>{
+  pool.query(`delete from subscribe where id = '${req.query.id}'`,(err,result)=>{
+    if(err) throw err;
+    else res.redirect('/all-subscribe');
   })
 })
 
