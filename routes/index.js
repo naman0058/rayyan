@@ -39,14 +39,16 @@ router.get('/visa/:name/:country',(req,res)=>{
   var query2 = `select id , name  from coaching;`
   var query3 = `select * from visa where name = '${visaname}';`
   var query4 = `select * from visa where name!= '${visaname}';`
-  var query5 = `select * from instructor where countryid = '1';`
+  var query5 = `select * from instructor where countryid = '2';`
   var query6 = `select id , name from coaching;`
+  var query7 = `select * from university where countryid = '3'`
 
 
 
-  pool.query(query+query1+query2+query3+query4+query5+query6,(err,result)=>{
+  pool.query(query+query1+query2+query3+query4+query5+query6+query7,(err,result)=>{
     if(err) throw err;
     else res.render('visa_details',{result,name:req.params.name,countryname:req.params.country})
+    // else res.json(result[5])
   })
 })
 
@@ -77,11 +79,13 @@ router.get('/country/:country/:name',(req,res)=>{
   var query4 = `select * from visa where name!= '${visaname}';`
   var query5 = `select * from instructor where countryid = '1';`
   var query6 = `select id , name from coaching;`
+  var query7 = `select * from university where countryid = '3'`
 
 
 
 
-  pool.query(query+query1+query2+query3+query4+query5+query6,(err,result)=>{
+
+  pool.query(query+query1+query2+query3+query4+query5+query6+query7,(err,result)=>{
     if(err) throw err;
     else res.render('visa_details',{result,name:req.params.name,countryname:req.params.country})
   })
@@ -193,6 +197,22 @@ router.get('/coaching/:name', function(req, res, next) {
   pool.query(query+query1+query2+query3,(err,result)=>{
     if(err) throw err;
     else res.render('coaching',{result})
+  })
+
+});
+
+
+
+router.get('/university/:name', function(req, res, next) {
+  let university = req.params.name.replace('-', ' ')
+
+  var query = `select id , name , logo from visa;`
+  var query1 = `select id , name , logo from country;`
+  var query2 = `select id , name from coaching;`
+  var query3 = `select * from university where name = '${university}';`
+  pool.query(query+query1+query2+query3,(err,result)=>{
+    if(err) throw err;
+    else res.render('university_show',{result})
   })
 
 });

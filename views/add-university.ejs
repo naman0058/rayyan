@@ -98,7 +98,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0">Add Coaching</h3>
+                    <h3 class="mb-0">Add University</h3>
                   </div>
                   <div class="col-4 text-right">
                     <button type="button" id="show" class="btn btn-sm btn-primary">Show</button>
@@ -107,9 +107,19 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-coaching/insert" method="post" enctype="multipart/form-data" class="uploadImage">
+            <form action="/university/insert" method="post" enctype="multipart/form-data" class="uploadImage">
               <div class="pl-lg-4">
          
+                <div class="row">
+                  
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Country Name</label>
+                      <select id="countryid" name="countryid" class="form-control"></select>
+                      </div>
+                    </div>
+                  
+                  </div>
 
                     <div class="row">
                   
@@ -158,15 +168,15 @@
                       <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-username">Training</label>
-                            <textarea type="text" id="input-email" name="training" class="form-control form-control-alternative" required></textarea>
+                            <label class="form-control-label" for="input-username">Description3</label>
+                            <textarea type="text" id="input-email" name="description3" class="form-control form-control-alternative" required></textarea>
 
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-email">Overview</label>
-                            <textarea type="text" id="input-email" name="overview" class="form-control form-control-alternative" required></textarea>
+                            <label class="form-control-label" for="input-email">Description4</label>
+                            <textarea type="text" id="input-email" name="description4" class="form-control form-control-alternative" required></textarea>
 
                           </div>
                         </div>
@@ -230,7 +240,8 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Name</label>
-                        <input type="text" id="pname" class="form-control form-control-alternative">
+                      <select id="pcountryid" name="pcountryid" class="form-control"></select>
+                       
                       </div>
                     </div>
                   </div>
@@ -264,15 +275,15 @@
                     <div class="row">
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-username">Training</label>
-                            <textarea type="text" id="ptraining" name="training" class="form-control form-control-alternative" required></textarea>
+                            <label class="form-control-label" for="input-username">Description3</label>
+                            <textarea type="text" id="pdescription3" name="training" class="form-control form-control-alternative" required></textarea>
 
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-email">Overview</label>
-                            <textarea type="text" id="poverview" name="overview" class="form-control form-control-alternative" required></textarea>
+                            <label class="form-control-label" for="input-email">Description4</label>
+                            <textarea type="text" id="pdescription4" name="overview" class="form-control form-control-alternative" required></textarea>
 
                           </div>
                         </div>
@@ -312,7 +323,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0">Update Visa Logo</h3>
+                    <h3 class="mb-0">Update University Logo</h3>
                   </div>
                   <div class="col-4 text-right">
                     <button type="button" id="back2" class="btn btn-sm btn-primary">Back</button>
@@ -321,7 +332,7 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-coaching/update_image" method="post" enctype="multipart/form-data">
+            <form action="/university/update_image" method="post" enctype="multipart/form-data">
               <div class="pl-lg-4">
                 <div class="row">
                   <div class="col-lg-4">
@@ -378,7 +389,7 @@
   <!-- Argon JS -->
   <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
   
-  <script type="text/javascript" src="/javascripts/coaching.js"></script>
+  <script type="text/javascript" src="/javascripts/university.js"></script>
 
 
 

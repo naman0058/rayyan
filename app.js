@@ -23,6 +23,7 @@ var tour_image = require('./routes/project_image');
 var trip = require('./routes/trip');
 var coaching = require('./routes/coaching');
 var review = require('./routes/review')
+var university = require('./routes/university')
 var app = express();
 
 // view engine setup
@@ -61,6 +62,7 @@ app.use('/tour-image',tour_image);
 app.use('/trip',trip);
 app.use('/add-coaching',coaching);
 app.use('/review',review)
+app.use('/university',university);
 
 
 // catch 404 and forward to error handler
