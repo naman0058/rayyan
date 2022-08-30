@@ -296,13 +296,7 @@ router.get('/logout',(req,res)=>{
 
 router.get('/admin',(req,res)=>{
   if(req.session.propertyadmin){
-    pool.query(`select e.* , (select p.name from partner p where p.id = e.vendorid) as partnername,
-  (select e.name from event e where e.id = e.eventid) as eventname
-    
-    from enquiry e order by id desc limit 20`,(err,result)=>{
-      if(err) throw err;
-      else res.render('admin',{result})
-    })
+   req.redirect('/add-blogs')
   }
   else{
     res.render('admin-login',{msg:'Invalid Credentials'})
