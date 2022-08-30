@@ -62,7 +62,7 @@ app.use('/tour-image',tour_image);
 app.use('/trip',trip);
 app.use('/add-coaching',coaching);
 app.use('/review',review)
-app.use('/university',university);
+app.use('/add-university',university);
 
 
 // catch 404 and forward to error handler

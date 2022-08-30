@@ -1,7 +1,7 @@
 
 let addgroup = []
 let wishes = []
-let table = 'university'
+let table = 'add-university'
 
 $.getJSON(`/add-country/show`, data => {
     addgroup = data
