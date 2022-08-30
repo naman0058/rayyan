@@ -296,7 +296,7 @@ router.get('/logout',(req,res)=>{
 
 router.get('/admin',(req,res)=>{
   if(req.session.propertyadmin){
-   req.redirect('/add-blogs')
+   res.redirect('/add-blogs')
   }
   else{
     res.render('admin-login',{msg:'Invalid Credentials'})
