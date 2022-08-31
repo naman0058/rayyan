@@ -689,7 +689,11 @@ router.get('/all-immigration',(req,res)=>{
 
 
 router.get('/all-contact',(req,res)=>{
-  pool.query(`select e.* from contact e order by id desc`,(err,result)=>{
+  pool.query(`select e.* , 
+  (select c.name from country c where c.id = e.countryid) as countryname,
+  (select c.name from visa c where c.id = e.visaid) as visaname
+
+   from contact e order by id desc`,(err,result)=>{
     if(err) throw err;
     else res.render('show_contact',{result:result})
   })

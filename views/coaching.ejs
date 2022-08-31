@@ -725,6 +725,38 @@ color: #000000;
                                     <input type="email" class="form-control  box for1" id="email" placeholder="Enter email" name="email">
                                   </div>
                             </div>
+
+
+                            <div class="row">
+                              <div class="col-6" >
+                                  <label for="name" style="font-family: Poppins;
+                                  font-size: 16px;
+                                  font-weight: 500;
+                                  line-height: 24px;
+                                  letter-spacing: 0em;
+                                  text-align: left;
+                                  ">Country Interested IN *</label>
+                                  <select id="countryid" name="countryid" class="form-control" required style="    padding: 20px;
+                                  box-shadow: 7px 4px 32px #cba6f0cf;
+                                  background-color: #EAE1FB;
+                                  border-radius: 5px;"></select>
+                                </div>
+                                <div class="form- col-6">
+          
+                                  <label for="email" style="font-family: Poppins;
+                                  font-size: 16px;
+                                  font-weight: 500;
+                                  line-height: 24px;
+                                  letter-spacing: 0em;
+                                  text-align: left;
+                                  ">Visa Type Interested *</label>
+                                   <select id="visaid" name="visaid" class="form-control" required style="    padding: 20px;
+                                   box-shadow: 7px 4px 32px #cba6f0cf;
+                                   background-color: #EAE1FB;
+                                   border-radius: 5px;"></select>
+
+                                </div>
+                          </div>
                            
                               
                           <div class="form-group">
@@ -933,6 +965,8 @@ height: 64px;
               let number = $('#number').val();
               let name = $('#name').val();
               let message = $('#message').val();
+              let countryid = $('#countryid').val();
+      let visaid = $('#visaid').val()
               
 
             var txt = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -943,7 +977,7 @@ height: 64px;
             
             else {
             
-              $.post('/contact/insert',{name,email,number,message},data=>{
+              $.post('/contact/insert',{name,email,number,message,countryid,visaid},data=>{
                 alert('Our Team Will Contact You Soon.')
               })
             }

@@ -29,11 +29,14 @@
                       <tr>
                         <th scope="col">S. No</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Interested Country</th>
+                        <th scope="col">Visa Type</th>
 
                         <th scope="col">Mobile Number</th>
 
 
                         <th scope="col">Email</th>
+
                         <th scope="col">Message</th>
 
                       
@@ -63,6 +66,22 @@
                             <div class="media align-items-center">
                               <div class="media-body">
                                 <span class="mb-0 text-sm"><%=result[i].name%></span>
+                              </div>
+                            </div>
+                          </th>
+
+                          <th scope="row">
+                            <div class="media align-items-center">
+                              <div class="media-body">
+                                <span class="mb-0 text-sm"><%=result[i].countryname%></span>
+                              </div>
+                            </div>
+                          </th>
+
+                          <th scope="row">
+                            <div class="media align-items-center">
+                              <div class="media-body">
+                                <span class="mb-0 text-sm"><%=result[i].visaname%></span>
                               </div>
                             </div>
                           </th>
