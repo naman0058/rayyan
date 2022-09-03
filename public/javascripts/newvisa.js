@@ -1,30 +1,14 @@
 
 let addgroup = []
 let wishes = []
-let addgroup1 = []
-let table = 'add-visa'
-
-
+let table = 'new-visa'
 
 $.getJSON(`/add-country/show`, data => {
-  addgroup = data
-  console.log('leagues',data)
-  fillDropDown('countryid', data, 'Choose Country', 0)
-
+    addgroup = data
+    console.log('leagues',data)
+    fillDropDown('countryid', data, 'Choose Country', 0)
+  
 })
-
-
-$.getJSON(`/new-visa/show`, data => {
-  addgroup1 = data
-  console.log('leagues',data)
-  fillDropDown('visaid', data, 'Choose Visa', 0)
-
-})
-
-
-
-
-
 
 $('#show').click(function(){
 $.getJSON(`/${table}/show`, data => {
@@ -89,8 +73,7 @@ function makeTable(board){
           <table class="table align-items-center table-dark table-flush">
             <thead class="thead-dark">
               <tr>
-              <th scope="col">Country Name</th>
-              <th scope="col">Visa Name</th>
+              <th scope="col">Name</th>
 
              
                 <th scope="col">Image</th>
@@ -106,24 +89,12 @@ function makeTable(board){
                     <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
-                          <span class="mb-0 text-sm">${item.countryname}</span>
+                          <span class="mb-0 text-sm">${item.name}</span>
                         </div>
                       </div>
                     </th>
 
-
-                    <th scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="mb-0 text-sm">${item.visaname}</span>
-                      </div>
-                    </div>
-                  </th>
-
-
-
-                    
-
+               
 
    <th scope="row">
             <div class="media align-items-center">
@@ -170,28 +141,30 @@ $('#result').on('click', '.delete', function() {
 
 
 
-
 $('#result').on('click', '.edit', function() {
     const id = $(this).attr('id')
     const result = wishes.find(item => item.id == id);
     fillDropDown('pcountryid', addgroup, 'Country Name', result.countryid)
-    fillDropDown('pvisaid', addgroup1, 'Visa Name', result.visaid)
-
-
     $('#editdiv').show()
     $('#insertdiv').hide() 
     $('#result').hide()
     $('#pid').val(result.id)
     $('#pname').val(result.name)
-    $('#pdescription1').val(result.description1)
+    $('#pdescription').val(result.description)
     $('#pdescription2').val(result.description2)
-    $('#pservice').val(result.service)
-    $('#pservice_charge').val(result.service_charge)
-    $('#ptype').val(result.type)
-    $('#pbenifits').val(result.benifits)
-
+    $('#pdescription3').val(result.description3)
+    $('#pdescription4').val(result.description4)
 
  
+
+    let table = `<p>${result.price_include}</p>
+    `
+    $('.peditor').html(table)
+
+
+    let table1 = `<p>${result.apply_thing}</p>
+    `
+    $('.peditor1').html(table1)
 
 
     
@@ -207,17 +180,9 @@ $('#update').click(function(){  //data insert in database
 
     let updateobj = {
         id: $('#pid').val(),
-    description1: $('#pdescription1').val(),
-        description2: $('#pdescription2').val(),
-        benifits:$('#pbenifits').val(),
-        countryid:$('#pcountryid').val(),
-        visaid:$('#pvisaid').val()
+        name: $('#pname').val(),
+    description: $('#pdescription').val(),
 
-
-     
-
-
-        
       
     }
 

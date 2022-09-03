@@ -65,12 +65,12 @@
 
 
 
-              <% for(i=0;i<result[1].length;i++) { %>
+              <% for(i=0;i<result[3].length;i++) { %>
 
               <div class="col-md-4 mb-4">
-<a href="/visa/<%=name%>/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>" style='text-decoration:none'>
+<a href="/visa/<%=name%>/<%=result[3][i].countryname.replace(/[ ,]+/g, "-");%>?visaid=<%=visaid%>&countryid=<%=result[3][i].countryid%>" style='text-decoration:none'>
                 <div class="card text-dark bg-white mb-3 card2 shadow" style="height: 476px;border-radius: 16px;">
-                  <img src="/images/<%=result[1][i].logo%>" alt="image" style="border-top-left-radius: 10px;border-top-right-radius: 10px;height: 327px;">
+                  <img src="/images/<%=result[3][i].countrylogo%>" alt="image" style="border-top-left-radius: 10px;border-top-right-radius: 10px;height: 327px;">
                   <div class="card-body">
                     <h3 class="card-title" style="font-family: Poppins;
                     font-size: 20px;
@@ -78,14 +78,18 @@
                     line-height: 24px;
                     letter-spacing: 0em;
                     text-align: left;
-                    "><%=result[1][i].name%></h3>
+                    "><%=result[3][i].countryname%></h3>
                     <p class="card-text" style="font-family: Poppins;
                     font-size: 14px;
                     font-weight: 400;
                     line-height: 24px;
                     letter-spacing: 0em;
                     text-align: left;
-                    "><%=result[1][i].description1%></p>
+                    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+                    "><%=result[3][i].countrydescription%></p>
         
                   </div>
                 </div>

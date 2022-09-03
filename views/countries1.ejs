@@ -68,7 +68,7 @@ All Countries</h3>
               <% for(i=0;i<result[1].length;i++) { %>
 
               <div class="col-md-4 mb-4">
-<a href="/country/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>" style='text-decoration:none'>
+<a href="/country/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>?id=<%=result[1][i].id%>" style='text-decoration:none'>
                 <div class="card text-dark bg-white mb-3 card2 shadow" style="height: 476px;border-radius: 16px;">
                   <img src="/images/<%=result[1][i].logo%>" alt="image" style="border-top-left-radius: 10px;border-top-right-radius: 10px;height: 327px;">
                   <div class="card-body">
@@ -85,6 +85,10 @@ All Countries</h3>
                     line-height: 24px;
                     letter-spacing: 0em;
                     text-align: left;
+                    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
                     "><%=result[1][i].description1%></p>
         
                   </div>

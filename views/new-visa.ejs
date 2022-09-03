@@ -98,7 +98,7 @@
             <div class="card-header bg-white border-0">
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h3 class="mb-0">Add Visa</h3>
+                    <h3 class="mb-0">New Visa</h3>
                   </div>
                   <div class="col-4 text-right">
                     <button type="button" id="show" class="btn btn-sm btn-primary">Show</button>
@@ -107,81 +107,44 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-visa/insert" method="post" enctype="multipart/form-data" class="uploadImage">
+            <form action="/new-visa/insert" method="post" enctype="multipart/form-data" class="uploadImage">
               <div class="pl-lg-4">
          
-                <div class="row">
-                  
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label class="form-control-label" for="input-email">Country Name</label>
-                    <select id="countryid" name="countryid" class="form-control"></select>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label class="form-control-label" for="input-email">Visa Name</label>
-                    <select id="visaid" name="visaid" class="form-control"></select>
-                    </div>
-                  </div>
-                
-                </div>
+               
 
                     <div class="row">
                   
-                      
-                      <div class="col-lg-12">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Visa Name</label>
+                          <input type="text" id="input-email" name="name" class="form-control form-control-alternative" required>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username">Image</label>
-                          <input type="file" id="input-email" name="logo" class="form-control form-control-alternative">
+                          <input type="file" id="input-email" name="logo" class="form-control form-control-alternative" required>
 
                         </div>
                       </div>
+                     
                     </div>
 
 
                     <div class="row">
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-username">Decription1</label>
-                            <textarea type="text" id="input-email" name="description1" class="form-control form-control-alternative"></textarea>
-
-                          </div>
-                        </div>
-                        <div class="col-lg-6">
-                          <div class="form-group">
-                            <label class="form-control-label" for="input-email">Description2</label>
-                            <textarea type="text" id="input-email" name="description2" class="form-control form-control-alternative"></textarea>
-
-                          </div>
-                        </div>
-                      </div>
-
-
-
-                      <div class="row">
+                  
                         <div class="col-lg-12">
                           <div class="form-group">
-                            <label class="form-control-label" for="input-username">Benifis</label>
-                            <textarea type="text" id="input-email" name="benifits" class="form-control form-control-alternative"></textarea>
-
+                            <label class="form-control-label" for="input-email">Visa Description</label>
+                            <textarea type="text" id="input-email" name="description" class="form-control form-control-alternative" required></textarea>
                           </div>
                         </div>
+                     
                        
                       </div>
 
 
-
-     
-                   
-                    
-                    
-
-        
-          
-
-
+                
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -224,68 +187,32 @@
          
 
 
-              <div class="row">
-                  
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-email">Country Name</label>
-                  <select id="pcountryid" name="pcountryid" class="form-control"></select>
-                  </div>
-                </div>
+                <div class="row">
+                    
+                   
 
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-email">Visa Name</label>
-                  <select id="pvisaid" name="pvisaid" class="form-control"></select>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Visa Name</label>
+                      <input id="pname" name="pname" class="form-control">
+                       
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-email">Visa Description</label>
+                        <textarea id="pdescription" name="pdescription" class="form-control"></textarea>
+                         
+                        </div>
+                      </div>
                   </div>
-                </div>
-              
-              </div>
 
 
 <input type="hidden" id="pid">
 
 
-                  <div class="row">
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Decription1</label>
-                          <textarea type="text" id="pdescription1" class="form-control form-control-alternative"></textarea>
-
-                        </div>
-                      </div>
-                      <div class="col-lg-6">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-email">Description2</label>
-                          <textarea type="text" id="pdescription2" class="form-control form-control-alternative"></textarea>
-
-                        </div>
-                      </div>
-                    </div>
-
-
-          
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <div class="form-group">
-                          <label class="form-control-label" for="input-username">Benifis</label>
-                          <textarea type="text" id="pbenifits" name="benifits" class="form-control form-control-alternative"></textarea>
-
-                        </div>
-                      </div>
-                     
-                    </div>
-                    
-  
-          
-
-
-    
-
-         
-          
-
-          
+              
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
@@ -320,7 +247,7 @@
               </div>
               
           <div class="card-body">
-            <form action="/add-visa/update_image" method="post" enctype="multipart/form-data">
+            <form action="/new-visa/update_image" method="post" enctype="multipart/form-data">
               <div class="pl-lg-4">
                 <div class="row">
                   <div class="col-lg-6">
@@ -336,6 +263,7 @@
                       <input type="file" name="logo"  class="form-control form-control-alternative">
                     </div>
                   </div>
+                
                 </div>
                 <div class="row">
                   <div class="col-md-12">
@@ -371,7 +299,7 @@
   <!-- Argon JS -->
   <script src="/admin/assets/js/argon.js?v=1.0.0"></script>
   
-  <script type="text/javascript" src="/javascripts/visa.js"></script>
+  <script type="text/javascript" src="/javascripts/newvisa.js"></script>
 
 
 

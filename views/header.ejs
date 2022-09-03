@@ -192,7 +192,7 @@ html.mobile.chrome{width: 100%;}
                   <li><a class="dropdown-item" href="/visa">Visa Services</a></li>
            
                   <% for(i=0;i<result[0].length;i++) { %>
-                  <li><a class="dropdown-item" href="/visa/<%=result[0][i].name.replace(/[ ,]+/g, "-");%>"><%=result[0][i].name%></a></li>
+                  <li><a class="dropdown-item" href="/visa/<%=result[0][i].name.replace(/[ ,]+/g, "-");%>?id=<%=result[0][i].id%>"><%=result[0][i].name%></a></li>
                   <% } %>
                 </ul>
               </li>
@@ -201,7 +201,7 @@ html.mobile.chrome{width: 100%;}
                   <li><a class="dropdown-item" href="/countries">All Country</a></li>
                 
                   <% for(i=0;i<result[1].length;i++) { %>
-                    <li><a class="dropdown-item" href="/country/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>"><%=result[1][i].name%></a></li>
+                    <li><a class="dropdown-item" href="/country/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>?id=<%=result[1][i].id%>"><%=result[1][i].name%></a></li>
 
                     <% } %>
                 </ul>

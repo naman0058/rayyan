@@ -5,7 +5,7 @@ var pool = require('./pool')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var query = `select id , name , logo , description1 from visa;`
+  var query = `select id , name , logo , description from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name from coaching;`
   var query3 = `select * from review;`
@@ -21,12 +21,18 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/visa/:name',(req,res)=>{
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name from coaching;`
-  pool.query(query+query1+query2,(err,result)=>{
+  var query3 = `select v.countryid ,
+   (select c.name from country c where c.id = v.countryid) as countryname,
+   (select c.logo from country c where c.id = v.countryid) as countrylogo,
+   (select c.description1 from country c where c.id = v.countryid) as countrydescription
+
+   from visa v where v.visaid = '${req.query.id}';`
+  pool.query(query+query1+query2+query3,(err,result)=>{
     if(err) throw err;
-    else res.render('countries',{result,name:req.params.name})
+    else res.render('countries',{result,name:req.params.name,visaid:req.query.id})
   })
 })
 
@@ -34,18 +40,20 @@ router.get('/visa/:name',(req,res)=>{
 
 router.get('/visa/:name/:country',(req,res)=>{
   let visaname = req.params.name.replace('-', ' ')
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name  from coaching;`
-  var query3 = `select * from visa where name = '${visaname}';`
-  var query4 = `select * from visa where name!= '${visaname}';`
+  var query3 = `select * from visa where countryid = '${req.query.countryid}' and visaid = '${req.query.visaid}';`
+  var query4 = `select * from new_visa where name!= '${visaname}';`
   var query5 = `select * from instructor where countryid = '2';`
   var query6 = `select id , name from coaching;`
-  var query7 = `select * from university where countryid = '3'`
+  var query7 = `select * from university where countryid = '3';`
+  var query8 = `select * from new_visa where id = '${req.query.visaid}';`
 
 
 
-  pool.query(query+query1+query2+query3+query4+query5+query6+query7,(err,result)=>{
+
+  pool.query(query+query1+query2+query3+query4+query5+query6+query7+query8,(err,result)=>{
     if(err) throw err;
     else res.render('visa_details',{result,name:req.params.name,countryname:req.params.country})
     // else res.json(result[5])
@@ -57,12 +65,18 @@ router.get('/visa/:name/:country',(req,res)=>{
 
 
 router.get('/country/:name',(req,res)=>{
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo , description from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name from coaching;`
-  pool.query(query+query1+query2,(err,result)=>{
+  var query3 = `select v.visaid ,
+   (select c.name from new_visa c where c.id = v.visaid) as visaname,
+   (select c.logo from new_visa c where c.id = v.visaid) as visalogo,
+   (select c.description from new_visa c where c.id = v.visaid ) as visadescription
+
+   from visa v where v.countryid = '${req.query.id}';`
+  pool.query(query+query1+query2+query3,(err,result)=>{
     if(err) throw err;
-    else res.render('visa1',{result,name:req.params.name})
+    else res.render('visa1',{result,name:req.params.name,countryid:req.query.id})
   })
 })
 
@@ -72,20 +86,22 @@ router.get('/country/:name',(req,res)=>{
 
 router.get('/country/:country/:name',(req,res)=>{
   let visaname = req.params.name.replace('-', ' ')
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name  from coaching;`
-  var query3 = `select * from visa where name = '${visaname}';`
-  var query4 = `select * from visa where name!= '${visaname}';`
-  var query5 = `select * from instructor where countryid = '1';`
+  var query3 = `select * from visa where countryid = '${req.query.countryid}' and visaid = '${req.query.visaid}';`
+  var query4 = `select * from new_visa where name!= '${visaname}';`
+  var query5 = `select * from instructor where countryid = '2';`
   var query6 = `select id , name from coaching;`
-  var query7 = `select * from university where countryid = '3'`
+  var query7 = `select * from university where countryid = '3';`
+  var query8 = `select * from new_visa where id = '${req.query.visaid}';`
+  
 
 
 
 
 
-  pool.query(query+query1+query2+query3+query4+query5+query6+query7,(err,result)=>{
+  pool.query(query+query1+query2+query3+query4+query5+query6+query7+query8,(err,result)=>{
     if(err) throw err;
     else res.render('visa_details',{result,name:req.params.name,countryname:req.params.country})
   })
@@ -96,7 +112,7 @@ router.get('/country/:country/:name',(req,res)=>{
 // Done
 
 router.get('/contact-us', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -109,7 +125,7 @@ router.get('/contact-us', function(req, res, next) {
 // Done
 
 router.get('/blogs', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   var query3 = `select id , name , description1 , logo from blogs;`
@@ -124,7 +140,7 @@ router.get('/blogs', function(req, res, next) {
 
 
 router.get('/blogs-details', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   var query3 = `select * from blogs where id = '${req.query.id}';`
@@ -149,7 +165,7 @@ router.post('/blog-details-by-id',(req,res)=>{
 
 
 router.get('/countries', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -163,7 +179,7 @@ router.get('/countries', function(req, res, next) {
 
 
 router.get('/visa', function(req, res, next) {
-  var query = `select id , name , logo , description1 from visa;`
+  var query = `select id , name , logo , description from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -176,7 +192,7 @@ router.get('/visa', function(req, res, next) {
 // Done
 
 router.get('/courses', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -190,7 +206,7 @@ router.get('/courses', function(req, res, next) {
 router.get('/coaching/:name', function(req, res, next) {
   let coachingname = req.params.name.replace('-', ' ')
 
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   var query3 = `select * from coaching where name = '${coachingname}';`
@@ -206,7 +222,7 @@ router.get('/coaching/:name', function(req, res, next) {
 router.get('/university/:name', function(req, res, next) {
   let university = req.params.name.replace('-', ' ')
 
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   var query3 = `select * from university where name = '${university}';`
@@ -221,7 +237,7 @@ router.get('/university/:name', function(req, res, next) {
 // Done
 
 router.get('/visa_details', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -235,7 +251,7 @@ router.get('/visa_details', function(req, res, next) {
 
 
 router.get('/country_details', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -249,7 +265,7 @@ router.get('/country_details', function(req, res, next) {
 
 
 router.get('/about-us', function(req, res, next) {
-  var query = `select id , name , logo from visa;`
+  var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo from country;`
   var query2 = `select id , name from coaching;`
   pool.query(query+query1+query2,(err,result)=>{
@@ -691,7 +707,7 @@ router.get('/all-immigration',(req,res)=>{
 router.get('/all-contact',(req,res)=>{
   pool.query(`select e.* , 
   (select c.name from country c where c.id = e.countryid) as countryname,
-  (select c.name from visa c where c.id = e.visaid) as visaname
+  (select c.name from new_visa c where c.id = e.visaid) as visaname
 
    from contact e order by id desc`,(err,result)=>{
     if(err) throw err;

@@ -51,7 +51,7 @@
               <% for(i=0;i<result[0].length;i++){ %>
 
               <div class="col-md-4 mb-4">
-                <a href="/visa/<%=result[0][i].name.replace(/[ ,]+/g, "-");%>" style='text-decoration:none'>
+                <a href="/visa/<%=result[0][i].name.replace(/[ ,]+/g, "-");%>?id=<%=result[0][i].id%>" style='text-decoration:none'>
                 <div class="card text-dark bg-white mb-3 card2">
                 
                   <img src="/images/<%=result[0][i].logo%>" alt="image" style="border-radius: 16px 16px 0px 0px;height: 343px;">
@@ -75,8 +75,11 @@ width: 379px;
 left: 14px;
 top: 393px;
 border-radius: nullpx;
-
-                    "><%=result[0][i].description1%></p>
+overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+                    "><%=result[0][i].description%></p>
                    
         
                   </div>
