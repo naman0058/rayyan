@@ -24,10 +24,13 @@ router.get('/visa/:name',(req,res)=>{
   var query = `select id , name , logo from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name from coaching;`
-  var query3 = `select v.countryid ,
+  var query3 = `select v.countryid , v.logo,
    (select c.name from country c where c.id = v.countryid) as countryname,
    (select c.logo from country c where c.id = v.countryid) as countrylogo,
-   (select c.description1 from country c where c.id = v.countryid) as countrydescription
+   (select c.description1 from country c where c.id = v.countryid) as countrydescription,
+   (select n.logo from new_visa n where n.id = v.visaid) as visalogo,
+   (select n.description from new_visa n where n.id = v.visaid) as visadescription
+
 
    from visa v where v.visaid = '${req.query.id}';`
   pool.query(query+query1+query2+query3,(err,result)=>{
@@ -68,10 +71,13 @@ router.get('/country/:name',(req,res)=>{
   var query = `select id , name , logo , description from new_visa;`
   var query1 = `select id , name , logo , description1 from country;`
   var query2 = `select id , name from coaching;`
-  var query3 = `select v.visaid ,
+  var query3 = `select v.visaid , 
    (select c.name from new_visa c where c.id = v.visaid) as visaname,
    (select c.logo from new_visa c where c.id = v.visaid) as visalogo,
-   (select c.description from new_visa c where c.id = v.visaid ) as visadescription
+   (select c.description from new_visa c where c.id = v.visaid ) as visadescription,
+   (select c.logo from country c where c.id = v.countryid) as countrylogo,
+   (select c.description1 from country c where c.id = v.countryid) as countrydescription
+
 
    from visa v where v.countryid = '${req.query.id}';`
   pool.query(query+query1+query2+query3,(err,result)=>{

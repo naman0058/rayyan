@@ -1,5 +1,5 @@
 <%- include ('./header.ejs') %>
-      <section style="padding-top: 7rem;background-color: white;" >
+      <section style="padding-top: 10rem;background-color: white;" >
         <div class="bg-holder" style="background-image:url();">
         </div>
         <!--/.bg-holder-->
@@ -7,7 +7,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end">
-              <img class="pt-7 pt-md-0 hero-img" src="/img/Visa/Visa/All Country Page/Heading - Copy.png" alt="hero-header" />
+              <img class="pt-7 pt-md-0 hero-img" src="/images/<%=result[3][0].visalogo%>" alt="hero-header" style='height: 400px;border-radius: 16px;'/>
             </div>
             <div class="col-md-7 col-lg-6 text-md-start text-center py-6" style="background:url('/img/Visa/Visa/All Country Page/Heading.png');background-size: contain;background-repeat: no-repeat;">
               <h1 class="hero-titl" style="font-family: Poppins;
@@ -16,12 +16,8 @@
               line-height: 56px;
               letter-spacing: 0em;
               text-align: left;
-              ">Countries</h1>
-              <p class="mb-4 fw-medium">Our collage are providingimmigration and visa to the highest
-                standared,with state of the art Our collage are providingimmigration and visa to the highest
-                standared,with state of the art.Our collage are providingimmigration and visa to the highest
-                standared,with state of the art Our collage are providingimmigration and visa to the highest
-                standared,with state of the art.</p>
+              "><%=name.replace('-' , ' ')%></h1>
+              <p class="mb-4 fw-medium"><%=result[3][0].visadescription%></p>
               <div class="text-center text-md-start">
                 
                 <div class="modal fade" id="popupVideo" tabindex="-1" aria-labelledby="popupVideo" aria-hidden="true">
