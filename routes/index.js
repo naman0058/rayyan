@@ -167,7 +167,7 @@ router.get('/blogs-details', function(req, res, next) {
 });
 
 
-router.post('/blog-details-by-id',(req,res)=>{
+router.post('/blog-details',(req,res)=>{
   console.log(req.body)
   pool.query(`select * from blogs where id = '${req.body.blogid}'`,(err,result)=>{
     if(err) throw err;
