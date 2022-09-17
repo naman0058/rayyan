@@ -35,7 +35,14 @@ router.get('/visa/:name',(req,res)=>{
    from visa v where v.visaid = '${req.query.id}';`
   pool.query(query+query1+query2+query3,(err,result)=>{
     if(err) throw err;
-    else res.render('countries',{result,name:req.params.name,visaid:req.query.id})
+    else if(result[3][0]){
+      res.render('countries',{result,name:req.params.name,visaid:req.query.id})
+    }
+    else {
+      res.render('nocountry',{result,name:req.params.name,visaid:req.query.id})
+
+    }
+    // else res.render('countries',{result,name:req.params.name,visaid:req.query.id})
   })
 })
 
