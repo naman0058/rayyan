@@ -121,7 +121,7 @@ background: white;}
 
 
                           <div class="form-group">
-                            <label for="email">Phone number</label>
+                            <label for="email">Phone number *</label>
                             <input type="number" class="form-control box for1" id="number" placeholder="Enter phone number" name="phone no">
                           </div>
                           <div class="form-group">
@@ -162,7 +162,10 @@ background: white;}
 
     if($('#name').val()==null || $('#name').val() =='' || $('#name').val() == []) alert('Enter Name');
     else if($('#email').val()==null || $('#email').val() =='' || $('#email').val() == []) alert('Enter Email');
+
     else if(!txt.test(email)) alert('Invalid Email')
+    else if($('#number').val()==null || $('#number').val() =='' || $('#number').val() == []) alert('Enter Mobile Number');
+
     
     else {
     

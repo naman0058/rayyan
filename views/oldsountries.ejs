@@ -1,0 +1,134 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@naman0058 
+naman0058
+/
+rayyan
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+rayyan/views/countries1.ejs
+@naman0058
+naman0058 a
+Latest commit 62139ef 15 days ago
+ History
+ 1 contributor
+94 lines (68 sloc)  3.39 KB
+
+<%- include ('./header.ejs') %>
+   
+
+
+   
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section style="padding-top: 10rem;background-color: white;" >
+
+
+          <div class="container" >
+
+            <div class="mb-7 text-center">
+              <div class=" translate-middle-x d-none d-xl-block ms-xl-n4 text-center" style="position: absolute;left:62%;top:-40px;align-items: center;align-content: center;z-index: 1;"><img src="/img/Visa/Visa/All Country Page/countryImg.png" alt="destination" style="height: 250px;" /></div>
+
+              <!-- <img src="/img/Visa/Visa/All Country Page/countryImg.png"/> -->
+              <h3 class="fs-xl-10 fs-lg-8 fs-7 text-center" style="font-family: Poppins;              
+              font-size: 44px;
+              font-weight: 700;
+              line-height: 56px;
+              letter-spacing: 0em;
+              text-align: left;
+              color: #14183E;
+             
+            
+">
+All Countries</h3>
+            </div>
+            <div class="row">
+
+
+
+              <% for(i=0;i<result[1].length;i++) { %>
+              <div class="col-md-4 mb-4">
+<a href="/country/<%=result[1][i].name.replace(/[ ,]+/g, "-");%>?id=<%=result[1][i].id%>" style='text-decoration:none'>
+                <div class="card text-dark bg-white mb-3 card2 shadow" style="height: 476px;border-radius: 16px;">
+                  <img src="/images/<%=result[1][i].logo%>" alt="image" style="border-top-left-radius: 10px;border-top-right-radius: 10px;height: 327px;">
+                  <div class="card-body">
+                    <h3 class="card-title" style="font-family: Poppins;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 24px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    "><%=result[1][i].name%></h3>
+                    <p class="card-text" style="font-family: Poppins;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 24px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+                    "><%=result[1][i].description1%></p>
+        
+                  </div>
+                </div>
+              </a>
+              </div>
+              <% } %>
+
+             
+              <div class="mt-4 mb-3" style="text-align: center;">
+                <!-- <a class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow" style="height: 64px;
+                width: 255px;
+                border-radius: 30px;
+                padding: 16px, 80px, 16px, 80px;
+                font-family: Poppins;
+font-size: 18px;
+font-weight: 600;
+line-height: 32px;
+letter-spacing: 0px;
+                " href="#!" role="button">Load More</a>
+               -->
+                <!-- <a href="#" class="btn btn-primary stretched-link  button4">See All Countries</a> -->
+              </div>
+            </div>
+          </div><!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+
+        <%- include ('./footer.ejs') %>
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+rayyan/countries1.ejs at main · naman0058/rayyan
