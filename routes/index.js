@@ -18,6 +18,11 @@ router.get('/', function(req, res, next) {
 });  
 
 
+router.get('/robots.txt',(req,res)=>{
+  res.render('robots')
+})
+
+
 
 
 router.get('/visa/:name',(req,res)=>{
